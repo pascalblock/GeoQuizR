@@ -18,6 +18,10 @@ export default store(function (/* { ssrContext } */) {
       // example
     },
 
+    state: {
+      actualQuiz: {}
+    },
+
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
     strict: process.env.DEBUGGING

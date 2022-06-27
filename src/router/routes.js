@@ -1,11 +1,44 @@
 
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: '/login',
+    name: 'login',
+    component: () => import('pages/Login')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('pages/Register')
+  },
+
+  {
+    path: "/",
+    component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
-    ]
+      {
+        path: "",
+        component: () => import("pages/Index.vue"),
+        name: 'home'
+      },
+      {
+        path: 'quiz-overview',
+        component: () => import('pages/Quiz/QuizStart'),
+        name: 'QuizStart'
+      },
+      {
+        path: 'quiz',
+        component: () => import('pages/Quiz/QuizFrame'),
+        name: 'quiz',
+        children: [
+
+        ]
+      },
+      {
+        path: 'faq',
+        component: () => import('pages/Faq'),
+        name: 'Faq'
+      }
+    ],
   },
 
   // Always leave this as last one,

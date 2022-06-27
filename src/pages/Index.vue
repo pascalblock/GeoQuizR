@@ -1,11 +1,10 @@
 <template>
-  <q-page class="flex flex-center">
-    <q-btn @click="getQuiz" label="quiz" />
-
+  <q-page>
     <quizCard
       v-for="quiz in availableQuizzes"
       :key="quiz.id"
       v-bind="quiz"
+      @select-quiz="selectTheQuiz(quiz)"
     />
   </q-page>
 </template>
@@ -49,6 +48,10 @@ export default defineComponent({
           name: doc.data().name[lanG]
         })
       })
+    },
+
+    selectTheQuiz(quiz) {
+      console.log('ausgewähltes Quiz: ', quiz.name)
     }
   }
 })

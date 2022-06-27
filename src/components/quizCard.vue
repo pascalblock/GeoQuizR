@@ -30,7 +30,7 @@
     </q-card-section>
 
     <q-card-actions class="mefo-quiz-select">
-      <q-btn color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'StartQuiz'}"/>
+      <q-btn @click="selectQuizHandler" color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
     </q-card-actions>
   </q-card>
 </template>
@@ -61,6 +61,11 @@ export default {
       type: Number,
       required: true,
       default: 5
+    }
+  },
+  methods: {
+    selectQuizHandler() {
+      this.$emit('select-quiz')
     }
   }
 }
