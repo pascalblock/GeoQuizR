@@ -85,7 +85,7 @@ export default defineComponent({
         {
           title: this.$t('sideBar.config'),
           icon: "settings",
-          link: "https://forum.quasar.dev",
+          link: "Settings",
         }
       ]
     }

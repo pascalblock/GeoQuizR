@@ -47,6 +47,11 @@ const routes = [
         path: 'imprint',
         component: () => import('pages/Imprint'),
         name: 'Imprint'
+      },
+      {
+        path: 'settings',
+        component: () => import('pages/Settings'),
+        name: 'Settings'
       }
     ],
   },
