@@ -42,6 +42,11 @@ const routes = [
         path: 'contact',
         component: () => import('pages/Contact'),
         name: 'Contact'
+      },
+      {
+        path: 'imprint',
+        component: () => import('pages/Imprint'),
+        name: 'Imprint'
       }
     ],
   },

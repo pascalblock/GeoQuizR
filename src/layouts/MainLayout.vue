@@ -80,7 +80,7 @@ export default defineComponent({
         {
           title: this.$t('sideBar.imprint'),
           icon: "policy",
-          link: "https://chat.quasar.dev",
+          link: "Imprint",
         },
         {
           title: this.$t('sideBar.config'),
