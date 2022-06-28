@@ -61,7 +61,7 @@ export default {
   },
   Contact: {
     headline: 'Kontakt',
-    intro: 'Wenn Sie Hilfe benötigen, können Sie uns über das Kontaktformular kontaktieren.',
+    intro: 'Melde dich bei uns, wenn du Hilfe benötigst.',
   },
   Imprint: {
     headline: 'Impressum',
