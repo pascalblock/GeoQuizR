@@ -81,4 +81,7 @@ export default {
     headline: 'Settings',
     intro: 'You can change your settings here.',
   },
+  Language: {
+    title: 'language',
+  },
 };

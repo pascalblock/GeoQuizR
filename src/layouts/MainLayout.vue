@@ -34,7 +34,7 @@
         <q-select
           v-model="locale"
           :options="localeOptions"
-          label="Quasar Language"
+          :label="$t('Language.title')"
           dense
           borderless
           emit-value
