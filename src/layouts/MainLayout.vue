@@ -40,6 +40,7 @@
           emit-value
           map-options
           options-dense
+          class="q-pa-lg"
           style="min-width: 150px"
         />
       </q-list>
