@@ -75,7 +75,7 @@ export default defineComponent({
         {
           title: this.$t('sideBar.contact'),
           icon: "contact_mail",
-          link: "https://github.com/quasarframework",
+          link: "Contact",
         },
         {
           title: this.$t('sideBar.imprint'),

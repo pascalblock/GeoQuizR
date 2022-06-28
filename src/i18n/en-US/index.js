@@ -58,5 +58,9 @@ export default {
         '                                    commodi magni quaerat ex numquam, dolorum officiis modi facere maiores architecto suscipit iste\n' +
         '                                    eveniet doloribus ullam aliquid.',
     }
+  },
+  Contact: {
+    headline: 'Contact',
+    intro: 'Use the contact form if u need help.',
   }
 };
