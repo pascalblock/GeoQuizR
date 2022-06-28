@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title class="nexa-font">
-          GeoQuizR
+          <router-link to="/" class="titleRouter">GeoQuizR</router-link>
         </q-toolbar-title>
 
         <q-btn
