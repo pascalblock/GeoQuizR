@@ -83,5 +83,6 @@ export default {
   },
   Language: {
     title: 'Sprache',
-  },
+    de: 'Deutsch',
+    en: 'Englisch',  },
 };

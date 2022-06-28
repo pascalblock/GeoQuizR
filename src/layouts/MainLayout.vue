@@ -104,7 +104,7 @@ export default defineComponent({
 
       locale,
       localeOptions: [
-        { value: 'en-US', label: 'English' },
+        { value: 'en-US', label: 'English'},
         { value: 'de-DE', label: 'Deutsch' }
       ]
     }
