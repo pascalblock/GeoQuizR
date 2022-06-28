@@ -1,21 +1,18 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="fullscreen bg-secondary text-white text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
-
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
+      <h1 class="text-white">
+        {{ $t('Error.error_404.code') }}
+      </h1>
+      <h2 class="text-white eras-font">
+        {{ $t('Error.error_404.message') }}
+      </h2>
 
       <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
+        class="q-mt-xl text-secondary bg-white"
         unelevated
         to="/"
-        label="Go Home"
+        :label="$t('Buttons.home.label')"
         no-caps
       />
     </div>

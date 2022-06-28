@@ -86,4 +86,15 @@ export default {
     de: 'German',
     en: 'English',
   },
+  Error: {
+    error_404: {
+      code: 'Error 404',
+      message: 'Oops. Nothing here...'
+    },
+  },
+  Buttons: {
+    home: {
+      label: 'Back to Home',
+    },
+  },
 };

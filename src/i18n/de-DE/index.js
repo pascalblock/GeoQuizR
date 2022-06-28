@@ -84,5 +84,17 @@ export default {
   Language: {
     title: 'Sprache',
     de: 'Deutsch',
-    en: 'Englisch',  },
+    en: 'Englisch',
+  },
+  Error: {
+    error_404: {
+      code: 'Error 404',
+      message: 'Es konnten keine Inhalte gefunden werden!'
+    },
+  },
+  Buttons: {
+    home: {
+      label: 'Zurück zur Startseite',
+    },
+  },
 };
