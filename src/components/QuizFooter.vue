@@ -1,7 +1,11 @@
 <template>
   <div class="mefo-quiz-footer row">
-    <q-btn :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps/>
-    <q-btn :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
+    <div class="col-6 mefo-prev-quest">
+      <q-btn :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
+    </div>
+    <div class="col-6 mefo-next-quest">
+      <q-btn :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
+    </div>
   </div>
 </template>
 
@@ -19,8 +23,25 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100%;
-  justify-content: space-around;
   align-items: center;
+
+  .mefo-next-quest{
+    display: flex;
+    justify-content: flex-end;
+
+    .q-btn{
+      margin-right: 1rem;
+    }
+  }
+
+  .mefo-prev-quest{
+    display: flex;
+    justify-content: flex-start;
+
+    .q-btn{
+      margin-left: 1rem;
+    }
+  }
 
   q-btn{
     height: 2rem;

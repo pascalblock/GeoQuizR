@@ -41,7 +41,7 @@
           map-options
           options-dense
           class="q-pl-md q-pt-sm q-pb-sm q-pr-md"
-          style="min-width: 150px"
+          style="width: 100%"
         />
       </q-list>
     </q-drawer>

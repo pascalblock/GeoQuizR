@@ -1,12 +1,17 @@
 <template>
   <q-page>
+    <q-pull-to-refresh
+      @refresh="refresh"
+      color="primary"
+      icon="location_on"
+    >
     <quizCard
       v-for="quiz in availableQuizzes"
       :key="quiz.id"
       v-bind="quiz"
       @select-quiz="selectTheQuiz(quiz)"
     />
-    <!--<q-input v-model="currentLang"></q-input>-->
+    </q-pull-to-refresh>
   </q-page>
 </template>
 
@@ -59,6 +64,12 @@ export default defineComponent({
 
   methods: {
     async getQuiz(){
+      this.$q.loading.show(
+        {
+          spinnerColor: 'primary',
+          backgroundColor: 'secondary'
+        }
+      )
       const quizList = query(collection(db, 'quiz'))
 
       const querySnapshot = await getDocs(quizList)
@@ -72,6 +83,7 @@ export default defineComponent({
             description: doc.data().description[lanG],
             name: doc.data().name[lanG]
           })
+          this.$q.loading.hide()
         }else {
           let index = this.availableQuizzes.findIndex(obj => obj.id === doc.id)
           this.availableQuizzes.splice(index, 1)
@@ -81,9 +93,8 @@ export default defineComponent({
             description: doc.data().description[lanG],
             name: doc.data().name[lanG]
           })
+          this.$q.loading.hide()
         }
-        console.log('LanG', lanG)
-        console.log('current', this.currentLang)
       })
     },
 
@@ -95,6 +106,13 @@ export default defineComponent({
       })
       console.log('State', this.$store.state.selectedQuiz)
       console.log( 'random', randomQuest)
+    },
+
+    refresh (done) {
+      setTimeout(() => {
+        this.getQuiz()
+        done()
+      }, 1000)
     }
   }
 })
