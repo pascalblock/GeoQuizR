@@ -7,7 +7,7 @@
         <p class="lt-md">{{ $t('Imprint.text')}}</p>
       </div>
     </div>
-    <pageFooter :footer-button-label="$t('Buttons.contact.label')" />
+    <pageFooter :footer-button-label="$t('Buttons.contact.label')" :target-destination="$t('contact')"/>
   </q-page>
 </template>
 

@@ -6,7 +6,7 @@
         <p>{{ $t('Settings.intro')}}</p>
       </div>
     </div>
-    <pageFooter :footer-button-label="$t('Buttons.save.label')" />
+    <pageFooter :footer-button-label="$t('Buttons.save.label')" :target-destination="$t('')"/>
   </q-page>
 </template>
 
