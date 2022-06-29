@@ -96,5 +96,14 @@ export default {
     home: {
       label: 'Zurück zur Startseite',
     },
+    send: {
+      label: 'absenden',
+    },
+    contact: {
+      label: 'kontaktieren',
+    },
+    save: {
+      label: 'speichern',
+    },
   },
 };

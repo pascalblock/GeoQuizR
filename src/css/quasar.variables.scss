@@ -37,11 +37,8 @@ p{
 }
 .headlineSection {
   font-size: xx-large;
-  border-bottom: 2px solid;
-  border-bottom-color: $primary;
   line-height: unset;
 }
-
 .bottomSection {
   border-top: 2px solid;
   border-top-color: $primary;
@@ -68,4 +65,17 @@ p{
   text-decoration: none;
   color: white;
 }
+.mefo-page-header{
+  border-bottom: 2px solid;
+  border-bottom-color: $primary;
+}
 
+.mefo-page-footer{
+  border-top: solid 2px $primary;
+  height: 3rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}

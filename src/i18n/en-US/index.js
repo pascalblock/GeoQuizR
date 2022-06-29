@@ -96,5 +96,14 @@ export default {
     home: {
       label: 'Back to Home',
     },
+    send: {
+      label: 'send',
+    },
+    contact: {
+      label: 'contact',
+    },
+    save: {
+      label: 'save',
+    },
   },
 };
