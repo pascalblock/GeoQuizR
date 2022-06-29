@@ -43,5 +43,6 @@ export default {
 .mefo-start-quiz-name{
   color: $primary;
   font-size: 3rem;
+  margin-bottom: unset;
 }
 </style>
