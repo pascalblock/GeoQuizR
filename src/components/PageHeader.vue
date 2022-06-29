@@ -13,14 +13,4 @@ export default {
 
 <style lang="scss" scoped>
 
-.mefo-page-footer{
-  border-top: solid 2px $primary;
-  height: 3rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
 </style>
