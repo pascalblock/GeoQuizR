@@ -1,7 +1,9 @@
 <template>
-  <div class="mefo-quiz-footer row q-pl-sm q-pr-sm">
-    <q-btn class="eras-font-demi" size="md" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps/>
-    <q-btn class="eras-font-demi" size="md" :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
+  <div class="mefo-quiz-footer row q-pl-lg q-pr-lg">
+    <div class="buttonSpace">
+      <q-btn class="eras-font-demi relative-position" size="md" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps/>
+      <q-btn class="eras-font-demi relative-position" size="md" :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
+    </div>
   </div>
 </template>
 
@@ -16,15 +18,17 @@ export default {
 .mefo-quiz-footer{
   border-top: solid 2px $primary;
   height: 3rem;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+}
 
-  q-btn{
-    height: 2rem;
-  }
+.buttonSpace{
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
 }
 
 </style>
