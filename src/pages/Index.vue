@@ -6,6 +6,7 @@
       v-bind="quiz"
       @select-quiz="selectTheQuiz(quiz)"
     />
+    <!--<q-input v-model="currentLang"></q-input>-->
   </q-page>
 </template>
 
@@ -31,27 +32,69 @@ export default defineComponent({
 
   created() {
     this.getQuiz()
+    //this.currentLang = this.$i18n.locale
   },
+
+  watch: {
+    currentLang: function(value){
+      console.log('watch', value)
+    },
+
+    /*currentLang(newLang, oldLang){
+      if( this.currentLang !== this.$i18n.locale ){
+        this.getQuiz()
+        console.log('Mooooin')
+      } else {
+        console.log('Fail')
+      }
+    },*/
+
+    /*currentLang: function(value){
+      console.log(value, 'teeeesst')
+      this.getQuiz()
+    }*/
+  },
+
+
 
   methods: {
     async getQuiz(){
       const quizList = query(collection(db, 'quiz'))
 
-      const querySnapshot = await getDocs(quizList);
+      const querySnapshot = await getDocs(quizList)
       querySnapshot.forEach((doc) => {
         console.log(doc.id, " => ", doc.data());
         let lanG = this.$i18n.locale
-        this.availableQuizzes.push({
-          ...doc.data(),
-          id: doc.id,
-          description: doc.data().description[lanG],
-          name: doc.data().name[lanG]
-        })
+        if (!this.availableQuizzes.find(obj => obj.id === doc.id)){
+          this.availableQuizzes.push({
+            ...doc.data(),
+            id: doc.id,
+            description: doc.data().description[lanG],
+            name: doc.data().name[lanG]
+          })
+        }else {
+          let index = this.availableQuizzes.findIndex(obj => obj.id === doc.id)
+          this.availableQuizzes.splice(index, 1)
+          this.availableQuizzes.push({
+            ...doc.data(),
+            id: doc.id,
+            description: doc.data().description[lanG],
+            name: doc.data().name[lanG]
+          })
+        }
+        console.log('LanG', lanG)
+        console.log('current', this.currentLang)
       })
     },
 
     selectTheQuiz(quiz) {
-      console.log('ausgewähltes Quiz: ', quiz.name)
+      const randomQuest = quiz.questions.sort(() => 0.5 - Math.random()).slice(0, 2)
+
+      this.$store.commit('storeSelectedQuiz', {
+        ...quiz, randomQuestions: randomQuest
+      })
+      console.log('State', this.$store.state.selectedQuiz)
+      console.log( 'random', randomQuest)
     }
   }
 })

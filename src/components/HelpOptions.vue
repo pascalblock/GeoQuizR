@@ -15,13 +15,15 @@ export default {
 
   data(){
     return {
-      countrySound: 'Moin Moin'
+      sound: ''
     }
   },
 
   methods: {
     async helpSound(){
-      await ScreenReader.speak({value: this.countrySound});
+      this.sound = this.$store.state.actualQuestion.help
+
+      await ScreenReader.speak({value: this.sound});
     }
   }
 }

@@ -1,18 +1,26 @@
 <template>
   <q-page class="mefo-start-quiz">
     <div>
-      <h5 class="mefo-start-quiz-name">StädteQuiz</h5>
+      <h5 class="mefo-start-quiz-name">{{ this.$store.state.selectedQuiz.name }}</h5>
       <q-btn color="secondary" no-caps :label="$t('startPage.startButton')" :to="{name: 'quiz'}" />
     </div>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
-      <q-btn round color="primary" icon="arrow_back" :to="{ name: 'home'}" />
+      <q-btn round color="primary" @click="resetQuizSelection" icon="arrow_back" :to="{ name: 'home'}" />
     </q-page-sticky>
   </q-page>
 </template>
 
 <script>
+import { ref } from 'vue'
 export default {
-  name: "QuizStart"
+  name: "QuizStart",
+
+  methods:{
+    resetQuizSelection(){
+      this.$store.commit('clearSelectedQuiz')
+      this.$store.commit('clearActualQuestion')
+    }
+  }
 }
 </script>
 

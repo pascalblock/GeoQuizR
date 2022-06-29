@@ -2,11 +2,11 @@
   <div class="mefo-quiz-header row">
     <div class="row col-4 mefo-quiz-count">
       <p>{{ $t('quizFrame.header.question') }}</p>
-      <p>1/10</p>
+      <p>{{ this.$store.state.finishedQuestions.length +1 }}/{{ this.$store.state.selectedQuiz.randomQuestions.length }}</p>
     </div>
 
     <div class="mefo-quiz-question col-8">
-      <p>Fraaaage</p>
+      <p>{{ this.$store.state.actualQuestion.name }}</p>
     </div>
   </div>
 </template>
