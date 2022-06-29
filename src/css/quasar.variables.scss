@@ -28,7 +28,7 @@ $warning   : #F2C037;
 
 
 h1, h2, h3, h4, h5{
-  font-family: 'Eras Medium ITC', sans-serif;
+  font-family: 'Eras Demi ITC', sans-serif;
   color: $secondary;
 }
 p{
@@ -39,7 +39,9 @@ p{
   font-size: xx-large;
   border-bottom: 2px solid;
   border-bottom-color: $primary;
+  line-height: unset;
 }
+
 .bottomSection {
   border-top: 2px solid;
   border-top-color: $primary;
