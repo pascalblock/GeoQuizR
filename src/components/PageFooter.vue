@@ -1,6 +1,6 @@
 <template>
   <div class="mefo-page-footer row q-pl-lg q-pr-lg">
-    <q-btn class="eras-font-demi relative-position" size="md" :label="footerButtonLabel" color="primary" :to="targetDestination" unelevated no-caps/>
+    <q-btn style="width: 180px" class="eras-font-demi relative-position" size="md" :label="footerButtonLabel" color="primary" :to="targetDestination" unelevated no-caps/>
   </div>
 </template>
 

@@ -33,7 +33,7 @@
         </q-expansion-item>
       </q-list>
     </div>
-    <pageFooter :footer-button-label="$t('Buttons.home.label')" :target-destination="$t('')"/>
+    <pageFooter :footer-button-label="$t('Buttons.home.label')" :target-destination="$t('/')"/>
   </q-page>
 </template>
 

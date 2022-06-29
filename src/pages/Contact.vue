@@ -6,7 +6,7 @@
         <p>{{ $t('Contact.intro')}}</p>
       </div>
     </div>
-    <pageFooter :footer-button-label="$t('Buttons.send.label')" :target-destination="$t('')" />
+    <pageFooter :footer-button-label="$t('Buttons.send.label')" :target-destination="$t('/')" />
   </q-page>
 </template>
 
