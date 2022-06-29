@@ -17,7 +17,7 @@ import pageHeader from "components/PageHeader";
 import pageFooter from "components/PageFooter";
 
 export default {
-  name: "Contact",
+  name: "Imprint",
 
   components: {
     pageHeader,
