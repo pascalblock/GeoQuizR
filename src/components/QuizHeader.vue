@@ -6,7 +6,7 @@
     </div>
 
     <div class="mefo-quiz-question col-8">
-      <p>Fraaaage</p>
+      <h1 class="text-h6">Frage</h1>
     </div>
   </div>
 </template>

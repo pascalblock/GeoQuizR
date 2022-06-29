@@ -1,13 +1,10 @@
 <template>
   <q-page>
     <quizHeader />
-
     <p>Moin</p>
-
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}" />
     </q-page-sticky>
-
     <helpOptions />
     <quizFooter />
   </q-page>

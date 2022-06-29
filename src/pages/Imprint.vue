@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="text-left q-pa-lg">
-      <h2>{{ $t('Imprint.headline') }}</h2>
+      <h1 class="headlineSection">{{ $t('Imprint.headline') }}</h1>
       <p class="gt-sm multiColums-2">{{ $t('Imprint.text')}}</p>
       <p class="lt-md">{{ $t('Imprint.text')}}</p>
     </div>

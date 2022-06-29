@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="text-left q-pa-lg">
-      <h2>{{ $t('Contact.headline') }}</h2>
+      <h1 class="headlineSection">{{ $t('Contact.headline') }}</h1>
       <p>{{ $t('Contact.intro')}}</p>
     </div>
   </q-page>

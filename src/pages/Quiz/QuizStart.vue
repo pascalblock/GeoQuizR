@@ -1,7 +1,7 @@
 <template>
   <q-page class="mefo-start-quiz">
     <div>
-      <h5 class="mefo-start-quiz-name">StädteQuiz</h5>
+      <h1 class="nexa-font mefo-start-quiz-name">StädteQuiz</h1>
       <q-btn color="secondary" no-caps :label="$t('startPage.startButton')" :to="{name: 'quiz'}" />
     </div>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
@@ -22,7 +22,6 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
   display: flex;
   justify-content: center;
   align-items: center;
