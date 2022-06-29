@@ -1,10 +1,10 @@
 <template>
   <q-page class="mefo-start-quiz">
-    <div>
+    <div class="mefo-quiz-title">
       <h1 class="nexa-font mefo-start-quiz-name">StädteQuiz</h1>
-      <q-btn color="secondary" no-caps :label="$t('startPage.startButton')" :to="{name: 'quiz'}" />
+      <q-btn style="width: 180px" size="lg" class="eras-font-demi" no-caps color="primary" :label="$t('startPage.startButton')" :to="{name: 'quiz'}" />
     </div>
-    <q-page-sticky position="bottom-left" :offset="[18, 56]">
+    <q-page-sticky class="q-pa-lg" position="bottom-left">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'home'}" />
     </q-page-sticky>
   </q-page>
@@ -18,23 +18,30 @@ export default {
 
 <style lang="scss">
 .mefo-start-quiz{
+  display: flex;
+}
+.mefo-start-quiz::after{
+  content: '';
+  position: absolute;
   background-image: url("../../assets/quizImages/Maps.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: -1;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+}
+.mefo-quiz-title{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+  text-align: center;
+}
 
-  div{
-    text-align: center;
-    .mefo-start-quiz-name{
-      font-size: 2rem;
-      font-weight: 600;
-      color: $secondary;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-  }
+.mefo-start-quiz-name{
+  color: $primary;
+  font-size: 3rem;
 }
 </style>
