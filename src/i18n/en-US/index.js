@@ -94,7 +94,7 @@ export default {
   },
   Buttons: {
     home: {
-      label: 'Back to Home',
+      label: 'back to home',
     },
     send: {
       label: 'send',
