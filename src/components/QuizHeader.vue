@@ -6,7 +6,7 @@
     </div>
 
     <div class="mefo-quiz-question col-8">
-      <h1 class="text-h6">{{ this.$store.state.actualQuestion.name }}</h1>
+      <p><b>{{ this.$store.state.actualQuestion.name }}</b></p>
     </div>
   </div>
 </template>
