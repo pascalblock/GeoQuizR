@@ -1,15 +1,26 @@
 <template>
   <q-page>
-    <div class="text-left q-pa-lg">
-      <h2>{{ $t('Settings.headline') }}</h2>
-      <p>{{ $t('Settings.intro')}}</p>
+    <div class="text-left">
+      <pageHeader :headline-title="$t('Settings.headline') "/>
+      <div class="q-pa-lg q-ma-none">
+        <p>{{ $t('Settings.intro')}}</p>
+      </div>
     </div>
+    <pageFooter :footer-button-label="$t('Buttons.save.label')" :target-destination="$t('/')"/>
   </q-page>
 </template>
 
 <script>
+import pageHeader from "components/PageHeader";
+import pageFooter from "components/PageFooter";
+
 export default {
-  name: "Settings"
+  name: "Settings",
+
+  components: {
+    pageHeader,
+    pageFooter,
+  }
 }
 </script>
 

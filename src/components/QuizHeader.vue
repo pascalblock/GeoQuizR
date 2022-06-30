@@ -1,12 +1,12 @@
 <template>
   <div class="mefo-quiz-header row">
-    <div class="row col-4 mefo-quiz-count">
+    <div class="row col-4 q-pl-lg mefo-quiz-count">
       <p>{{ $t('quizFrame.header.question') }}</p>
       <p>{{ this.$store.state.finishedQuestions.length +1 }}/{{ this.$store.state.selectedQuiz.randomQuestions.length }}</p>
     </div>
 
     <div class="mefo-quiz-question col-8">
-      <p>{{ this.$store.state.actualQuestion.name }}</p>
+      <h1 class="text-h6">{{ this.$store.state.actualQuestion.name }}</h1>
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
   height: 3rem;
   text-align: center;
   align-items: center;
-  border-bottom: solid 2px $secondary;
+  border-bottom: solid 2px $primary;
 
   p {
     margin-bottom: 0;

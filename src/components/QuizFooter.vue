@@ -1,10 +1,10 @@
 <template>
   <div class="mefo-quiz-footer row">
     <div class="col-6 mefo-prev-quest">
-      <q-btn :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
+      <q-btn class="eras-font-demi" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
     </div>
     <div class="col-6 mefo-next-quest">
-      <q-btn :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
+      <q-btn class="eras-font-demi" :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
     </div>
   </div>
 </template>
@@ -18,9 +18,9 @@ export default {
 <style lang="scss" scoped>
 
 .mefo-quiz-footer{
-  border-top: solid 2px $secondary;
+  border-top: solid 2px $primary;
   height: 3rem;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   align-items: center;

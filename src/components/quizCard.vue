@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <q-rating :v-model="stars" :max="5" size="32px" />
+      <q-rating color="accent" :v-model="stars" :max="5" size="32px"  model-value=""/>
     </q-card-section>
 
     <q-card-section class="q-pt-none">
@@ -30,7 +30,7 @@
     </q-card-section>
 
     <q-card-actions class="mefo-quiz-select">
-      <q-btn @click="selectQuizHandler" color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
+      <q-btn style ="width: 180px;" @click="selectQuizHandler" color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
     </q-card-actions>
   </q-card>
 </template>
