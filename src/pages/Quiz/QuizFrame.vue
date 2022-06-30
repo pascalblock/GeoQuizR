@@ -3,7 +3,10 @@
     <quizHeader />
 
     <p>{{ this.$store.state.actualQuestion }}</p>
-
+    <l-map class="fixed" :zoom="zoom" :center="center">
+      <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+      <l-geo-json :geojson="geojson"></l-geo-json>
+    </l-map>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}" />
     </q-page-sticky>
@@ -18,6 +21,9 @@ import quizFooter from "components/QuizFooter";
 import helpOptions from "components/HelpOptions";
 import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
 import { db, auth } from "src/boot/firebase";
+import "leaflet/dist/leaflet.css"
+import { LMap, LGeoJson, LTileLayer } from "@vue-leaflet/vue-leaflet";
+
 
 export default {
   name: "QuizFrame",
@@ -25,14 +31,23 @@ export default {
   components: {
     quizHeader,
     quizFooter,
-    helpOptions
+    helpOptions,
+    LMap,
+    LGeoJson,
+    LTileLayer,
   },
 
-  date(){
+  data(){
     return {
       actualQuestionID: '',
-      actualQuestion: {}
-    }
+      actualQuestion: {},
+      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      attribution:
+        '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      zoom: 8,
+      center: [47.313220, -1.319482],
+      geojson: null
+    };
   },
 
   created() {
@@ -68,6 +83,10 @@ export default {
       this.$store.commit('storeActualQuestion', {
         ...this.actualQuestion
       })
+    },
+    async created () {
+      const response = await fetch('https://rawgit.com/gregoiredavid/france-geojson/master/regions/pays-de-la-loire/communes-pays-de-la-loire.geojson');
+      this.geojson = await response.json();
     }
   }
 }

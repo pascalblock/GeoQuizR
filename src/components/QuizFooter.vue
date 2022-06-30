@@ -24,6 +24,7 @@ export default {
   bottom: 0;
   width: 100%;
   align-items: center;
+  background-color: white;
 
   .mefo-next-quest{
     display: flex;
