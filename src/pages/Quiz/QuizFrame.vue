@@ -5,6 +5,7 @@
     <p>{{ this.$store.state.actualQuestion }}</p>
     <l-map class="fixed" :zoom="zoom" :center="center">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+      <l-marker :lat-lng="marker.position" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
       <l-geo-json :geojson="geojson"></l-geo-json>
     </l-map>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
@@ -22,9 +23,7 @@ import helpOptions from "components/HelpOptions";
 import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
 import { db, auth } from "src/boot/firebase";
 import "leaflet/dist/leaflet.css"
-import { LMap, LGeoJson, LTileLayer, } from "@vue-leaflet/vue-leaflet";
-import * as L from "leaflet";
-
+import { LMap, LGeoJson, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
 
 export default {
   name: "QuizFrame",
@@ -36,6 +35,7 @@ export default {
     LMap,
     LGeoJson,
     LTileLayer,
+    LMarker,
   },
 
   data(){
@@ -45,15 +45,20 @@ export default {
       // url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
       // url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
       ext: 'png',
-
       // url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.{ext}',
       url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',      subdomains: 'abcd',
       minZoom: 4,
       maxZoom: 20,
       zoom: 8,
-      center: L.latLng(47.413220, -1.219482),
+      center: [47.413220, -1.219482],
       geojson: null,
+      marker:
+        {
+          position: [47.313220, -1.319482],
+          visible: true,
+          draggable: true,
+        },
     };
   },
   created() {
