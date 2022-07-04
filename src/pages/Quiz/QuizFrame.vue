@@ -3,9 +3,10 @@
     <quizHeader />
 
     <p>{{ this.$store.state.actualQuestion }}</p>
-    <l-map class="fixed" :zoom="zoom" :center="center">
+    <p>{{markerLatLang}}</p>
+    <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :lat-lng="marker.position" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
+      <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
       <l-geo-json :geojson="geojson"></l-geo-json>
     </l-map>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
@@ -49,13 +50,13 @@ export default {
       url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',      subdomains: 'abcd',
       minZoom: 4,
-      maxZoom: 20,
+      maxZoom: 10,
       zoom: 8,
-      center: [47.413220, -1.219482],
       geojson: null,
+      markerLatLang: [47.313220, -1.319482],
       marker:
         {
-          position: [47.313220, -1.319482],
+          position: {lat: 47.313220, lang: -1.319482},
           visible: true,
           draggable: true,
         },
