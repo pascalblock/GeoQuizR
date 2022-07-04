@@ -56,7 +56,7 @@ export default {
       markerLatLang: [47.313220, -1.319482],
       marker:
         {
-          position: {lat: 47.313220, lang: -1.319482},
+          position: { lat: 47.313220, lang: -1.319482 },
           visible: true,
           draggable: true,
         },
