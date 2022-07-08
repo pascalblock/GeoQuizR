@@ -4,6 +4,10 @@
 
     <p>{{ this.$store.state.actualQuestion }}</p>
     <p>{{markerLatLang}}</p>
+    <p>{{ this.$store.state.finishedQuestions }}</p>
+    <p>{{ markerLatLang.lat }}, {{ markerLatLang.lng}}</p>
+    <p>{{calculatedDistance}}</p>
+
     <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
@@ -13,7 +17,14 @@
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}" />
     </q-page-sticky>
     <helpOptions />
-    <quizFooter />
+    <!--
+    @save-Answer="savePlayerAnswer()"
+      @calc-Dist="calculateDistance()"
+    -->
+    <quizFooter
+      @load-nextQuest="nextQuestion()"
+      @save-Answer="saveProcess()"
+    />
   </q-page>
 </template>
 
@@ -60,18 +71,109 @@ export default {
           visible: true,
           draggable: true,
         },
+      questionIndex: 1,
+      calculatedDistance: null
     };
   },
   created() {
-    this.getQuestionID()
+    this.firstQuestion()
   },
 
   methods: {
-    getQuestionID(){
-      const questionID = this.$store.state.selectedQuiz.randomQuestions.slice(0,1).shift()
-      this.actualQuestionID = questionID
+    saveProcess() {
+      this.calculateDistance()
+        if(this.calculatedDistance !== null){
+          this.savePlayerAnswer()
+        }else{
+          console.log('Etwas ist bei der Brechnung schief gelaufen!')
+        }
+      },
 
+    savePlayerAnswer(){
+      this.$store.commit('saveUserAnswer', {
+        savedLocation: {
+          lat: this.markerLatLang.lat,
+          long: this.markerLatLang.lng
+        },
+        distance: this.calculatedDistance,
+       ...this.actualQuestion
+      })
+    },
+
+    calculateDistance(
+      lat1 = this.actualQuestion.location.latitude,
+      lon1 = this.actualQuestion.location.longitude,
+      lat2 = this.markerLatLang.lat,
+      lon2 = this.markerLatLang.lng,
+      unit = 'K'
+    ){
+      if ((lat1 == lat2) && (lon1 == lon2)) {
+        return 0;
+      }
+      else {
+        let radlat1 = Math.PI * lat1/180;
+        let radlat2 = Math.PI * lat2/180;
+        let theta = lon1-lon2;
+        let radtheta = Math.PI * theta/180;
+        let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+        if (dist > 1) {
+          dist = 1;
+        }
+        dist = Math.acos(dist);
+        dist = dist * 180/Math.PI;
+        dist = dist * 60 * 1.1515;
+        if (unit=="K") { dist = dist * 1.609344 }
+        if (unit=="N") { dist = dist * 0.8684 }
+        console.log('Distanz', dist)
+        //return dist;
+        this.calculatedDistance = dist
+      }
+    },
+
+    /*
+    calculateDistance(){
+      let lat1 = toRad(this.actualQuestion.location.latitude)
+      let lon1 = this.actualQuestion.location.longitude
+      let lat2 = toRad(this.this.markerLatLang.lat)
+      let lon2 = this.markerLatLang.lng
+
+      function calcCrow()
+      {
+        let R = 6371; // km
+
+        let dLat = toRad(lat2-lat1);
+        let dLon = toRad(lon2-lon1);
+
+        let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+          Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        let d = R * c;
+        console.log(d, 'KM')
+        return d;
+      }
+
+      // Converts numeric degrees to radians
+      function toRad(Value)
+      {
+        return Value * Math.PI / 180;
+      }
+    },
+*/
+    firstQuestion(){
+      const questionID = this.$store.state.selectedQuiz.randomQuestions[0]
+      this.actualQuestionID = questionID
       this.getQuestion()
+    },
+
+    nextQuestion(){
+      this.calculateDistance()
+      if(this.questionIndex < this.$store.state.selectedQuiz.randomQuestions.length){
+        const questionID = this.$store.state.selectedQuiz.randomQuestions[this.questionIndex]
+        this.actualQuestionID = questionID
+        this.questionIndex++
+        console.log(this.questionIndex)
+        this.getQuestion()
+      }
     },
 
     async getQuestion(){
@@ -99,7 +201,7 @@ export default {
     async created () {
       const response = await fetch('https://rawgit.com/gregoiredavid/france-geojson/master/regions/pays-de-la-loire/communes-pays-de-la-loire.geojson');
       this.geojson = await response.json();
-    }
+    },
   }
 }
 </script>

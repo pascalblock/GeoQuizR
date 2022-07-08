@@ -99,7 +99,7 @@ export default defineComponent({
     },
 
     selectTheQuiz(quiz) {
-      const randomQuest = quiz.questions.sort(() => 0.5 - Math.random()).slice(0, 2)
+      const randomQuest = quiz.questions.sort(() => 0.5 - Math.random()).slice(0, 10)
 
       this.$store.commit('storeSelectedQuiz', {
         ...quiz, randomQuestions: randomQuest

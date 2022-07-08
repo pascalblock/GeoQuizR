@@ -4,14 +4,26 @@
       <q-btn class="eras-font-demi" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
     </div>
     <div class="col-6 mefo-next-quest">
-      <q-btn class="eras-font-demi" :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
+      <q-btn class="eras-font-demi" @click="nextQuestionHandler(); saveAnswerHandler(); calcDistanceHandler()" :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "QuizFooter"
+  name: "QuizFooter",
+
+  methods: {
+    nextQuestionHandler() {
+      this.$emit('load-nextQuest')
+    },
+    saveAnswerHandler(){
+      this.$emit('save-Answer')
+    },
+    calcDistanceHandler(){
+      this.$emit('calc-Dist')
+    }
+  }
 }
 </script>
 
