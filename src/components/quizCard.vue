@@ -14,8 +14,8 @@
         <div class="col text-h6 ellipsis mefo-quiz-name">
           {{ name }}
         </div>
-        <div class="col-auto text-grey text-caption q-pt-md row no-wrap items-center">
-          <q-icon name="groups" />
+        <div class="col-auto text-grey text-caption q-pt-md q-mr-sm row no-wrap items-center">
+          <q-icon name="groups" class="q-mr-xs" />
           {{ player }}
         </div>
       </div>
