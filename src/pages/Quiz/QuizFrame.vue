@@ -22,10 +22,12 @@
     @save-Answer="savePlayerAnswer()"
       @calc-Dist="calculateDistance()"
       @load-prevQuest="previousQuestion()"
+      @step-Counter=""
     -->
     <quizFooter
       @save-Answer="saveProcess()"
       @load-nextQuest="nextQuestion()"
+      @inc-StepCounter="increaseStepCount()"
     />
   </q-page>
 </template>
@@ -114,6 +116,12 @@ export default {
       }
     },
  */
+
+    increaseStepCount(){
+      if(this.$store.state.stepCounter < this.$store.state.selectedQuiz.randomQuestions.length) {
+        this.$store.commit('increaseStepCounter')
+      }
+    },
 
     saveProcess() {
       this.calculateDistance()

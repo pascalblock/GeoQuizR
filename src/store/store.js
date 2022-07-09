@@ -1,12 +1,15 @@
 export default {
   state: {
     selectedQuiz: {},
-
     actualQuestion: {},
-
-    finishedQuestions: []
+    finishedQuestions: [],
+    stepCounter: 1
   },
   mutations: {
+    increaseStepCounter(state){
+      state.stepCounter++
+    },
+
     saveUserAnswer(state, answer){
       state.finishedQuestions = [...state.finishedQuestions, {...answer}]
     },
@@ -33,6 +36,9 @@ export default {
 
     clearFinishedQuestions(state) {
       state.finishedQuestions = []
+    },
+    clearStepCount(state) {
+      state.stepCounter = 1
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="mefo-quiz-header row">
     <div class="row col-4 q-pl-lg mefo-quiz-count">
       <p>{{ $t('quizFrame.header.question') }}</p>
-      <p>{{ this.$store.state.finishedQuestions.length +1 }}/{{ this.$store.state.selectedQuiz.randomQuestions.length }}</p>
+      <p>{{this.$store.state.stepCounter}}/{{ this.$store.state.selectedQuiz.randomQuestions.length }}</p>
     </div>
 
     <div class="mefo-quiz-question col-8">

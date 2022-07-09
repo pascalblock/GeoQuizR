@@ -38,9 +38,21 @@ export default {
 
     footer: {
       prev: 'vorherige Frage',
-      next: 'nächste Frage'
+      next: 'nächste Frage',
+      last: 'zum Ergebnis'
+    },
+  },
+  resultPage: {
+    headline: 'Deine Ergebnisse',
+    statistics: 'Auswertung',
+    goToHome: 'Zurück zur Quiz-Übersicht',
+
+    card: {
+      result1: 'Deine Tipp war ',
+      result2: 'km entfernt.'
     }
   },
+
   FAQ: {
     headline: 'FAQ',
     intro: 'Hier findest du alle Antworten auf deine Fragen.',

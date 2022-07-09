@@ -1,11 +1,11 @@
 <template>
   <q-page class="mefo-results-page">
     <h4>
-      Deine Ergebnisse
+      {{ $t('resultPage.headline') }}
     </h4>
 
     <div>
-      <p style="text-align: center" class="text-h6"><b>Auswertung:</b></p>
+      <p style="text-align: center" class="text-h6"><b>{{ $t('resultPage.statistics') }}</b></p>
       <div class="row" style="display: flex; justify-content: space-around">
         <div>
           <q-circular-progress
@@ -66,9 +66,7 @@
     </div>
 
     <q-page-sticky position="bottom" :offset="[0, 18]">
-      <q-btn color="primary" no-caps @click="resetAllResults" :to="{name: 'home'}">
-        Zurück zur Quiz-Übersicht
-      </q-btn>
+      <q-btn color="primary" no-caps @click="resetAllResults" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
     </q-page-sticky>
   </q-page>
 </template>
@@ -128,6 +126,7 @@ export default {
       this.$store.commit('clearSelectedQuiz')
       this.$store.commit('clearActualQuestion')
       this.$store.commit('clearFinishedQuestions')
+      this.$store.commit('clearStepCount')
     }
   }
 }

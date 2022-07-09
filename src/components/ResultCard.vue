@@ -4,7 +4,7 @@
       <p class="text-h6 mefo-quiz-name">
         {{ name }}
       </p>
-      <p><b>Dein Tipp war {{Math.round(distance)}} km entfernt</b></p>
+      <p><b>{{ $t('resultPage.card.result1') }} {{Math.round(distance)}} {{ $t('resultPage.card.result2') }}</b></p>
     </q-card-section>
 
     <q-card-actions>

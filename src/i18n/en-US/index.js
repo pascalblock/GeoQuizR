@@ -38,7 +38,18 @@ export default {
 
     footer: {
       prev: 'prev Question',
-      next: 'next Question'
+      next: 'next Question',
+      last: 'to result'
+    }
+  },
+  resultPage: {
+    headline: 'Your Results',
+    statistics: 'Analysis',
+    goToHome: 'To the quiz overview',
+
+    card: {
+      result1: 'Your tip was ',
+      result2: 'km away.'
     }
   },
   FAQ: {

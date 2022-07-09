@@ -5,7 +5,7 @@
       <q-btn style="width: 180px" size="lg" class="eras-font-demi" no-caps color="primary" :label="$t('startPage.startButton')" :to="{name: 'quiz'}" />
     </div>
     <q-page-sticky class="q-pa-lg" position="bottom-left">
-      <q-btn @click="resetQuizSelection" round color="primary" icon="arrow_back" :to="{ name: 'home'}" />
+      <q-btn @click="resetQuizSelection" round color="primary" icon="meeting_room" :to="{ name: 'home'}" />
     </q-page-sticky>
   </q-page>
 </template>
@@ -20,6 +20,7 @@ export default {
       this.$store.commit('clearSelectedQuiz')
       this.$store.commit('clearActualQuestion')
       this.$store.commit('clearFinishedQuestions')
+      this.$store.commit('clearStepCount')
     }
   }
 }
