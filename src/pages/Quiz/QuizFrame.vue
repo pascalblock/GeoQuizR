@@ -1,13 +1,14 @@
 <template>
   <q-page>
     <quizHeader />
-
+<!--
     <p>{{ this.$store.state.actualQuestion }}</p>
     <p>{{markerLatLang}}</p>
     <p>{{ this.$store.state.finishedQuestions }}</p>
     <p>{{ markerLatLang.lat }}, {{ markerLatLang.lng}}</p>
     <p>{{calculatedDistance}}</p>
-
+    <p>Index {{questionIndex}}</p>
+-->
     <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
@@ -20,10 +21,11 @@
     <!--
     @save-Answer="savePlayerAnswer()"
       @calc-Dist="calculateDistance()"
+      @load-prevQuest="previousQuestion()"
     -->
     <quizFooter
-      @load-nextQuest="nextQuestion()"
       @save-Answer="saveProcess()"
+      @load-nextQuest="nextQuestion()"
     />
   </q-page>
 </template>
@@ -72,7 +74,9 @@ export default {
           draggable: true,
         },
       questionIndex: 1,
-      calculatedDistance: null
+      calculatedDistance: null,
+      prevQuestion:{},
+      finishedQuestionsLength: 0
     };
   },
   created() {
@@ -80,6 +84,37 @@ export default {
   },
 
   methods: {
+    /*
+    previousQuestion(){
+      console.log('vorherige Frage')
+      this.prevQuestion = this.$store.state.finishedQuestions[this.finishedQuestionsLength-1]
+      console.log('vor Frage: ', this.prevQuestion)
+      this.finishedQuestionsLength--
+      this.actualQuestion = this.prevQuestion
+      this.$store.commit('storeActualQuestion', {
+        ...this.actualQuestion
+      })
+      console.log('Store Frage', this.$store.state.actualQuestion)
+    },
+     */
+    /*
+    previousQuestion(){
+      this.finishedQuestionsLength--
+      if(this.$store.state.finishedQuestions.length > 0) {
+        this.prevQuestion = this.$store.state.finishedQuestions[this.finishedQuestionsLength]
+        console.log(this.prevQuestion)
+        this.actualQuestion = this.prevQuestion
+        this.$store.commit('storeActualQuestion', {
+          ...this.actualQuestion
+        })
+
+      }else {
+        this.prevQuestion = this.$store.state.finishedQuestions.at(0)
+        console.log(this.prevQuestion)
+      }
+    },
+ */
+
     saveProcess() {
       this.calculateDistance()
         if(this.calculatedDistance !== null){
@@ -123,42 +158,13 @@ export default {
         dist = dist * 180/Math.PI;
         dist = dist * 60 * 1.1515;
         if (unit=="K") { dist = dist * 1.609344 }
-        if (unit=="N") { dist = dist * 0.8684 }
+        //if (unit=="N") { dist = dist * 0.8684 }
         console.log('Distanz', dist)
         //return dist;
         this.calculatedDistance = dist
       }
     },
 
-    /*
-    calculateDistance(){
-      let lat1 = toRad(this.actualQuestion.location.latitude)
-      let lon1 = this.actualQuestion.location.longitude
-      let lat2 = toRad(this.this.markerLatLang.lat)
-      let lon2 = this.markerLatLang.lng
-
-      function calcCrow()
-      {
-        let R = 6371; // km
-
-        let dLat = toRad(lat2-lat1);
-        let dLon = toRad(lon2-lon1);
-
-        let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-          Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
-        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        let d = R * c;
-        console.log(d, 'KM')
-        return d;
-      }
-
-      // Converts numeric degrees to radians
-      function toRad(Value)
-      {
-        return Value * Math.PI / 180;
-      }
-    },
-*/
     firstQuestion(){
       const questionID = this.$store.state.selectedQuiz.randomQuestions[0]
       this.actualQuestionID = questionID
@@ -166,13 +172,14 @@ export default {
     },
 
     nextQuestion(){
-      this.calculateDistance()
       if(this.questionIndex < this.$store.state.selectedQuiz.randomQuestions.length){
         const questionID = this.$store.state.selectedQuiz.randomQuestions[this.questionIndex]
         this.actualQuestionID = questionID
         this.questionIndex++
         console.log(this.questionIndex)
         this.getQuestion()
+        this.finishedQuestionsLength++
+        console.log('Länge', this.finishedQuestionsLength)
       }
     },
 
