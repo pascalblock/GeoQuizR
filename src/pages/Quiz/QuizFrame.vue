@@ -180,6 +180,8 @@ export default {
         this.getQuestion()
         this.finishedQuestionsLength++
         console.log('Länge', this.finishedQuestionsLength)
+      } else {
+        this.$router.push({ name: 'Finished' })
       }
     },
 

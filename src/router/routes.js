@@ -30,8 +30,12 @@ const routes = [
         component: () => import('pages/Quiz/QuizFrame'),
         name: 'quiz',
         children: [
-
         ]
+      },
+      {
+        path: 'quiz-result',
+        component: () => import('pages/Quiz/Finished'),
+        name: 'Finished'
       },
       {
         path: 'faq',
