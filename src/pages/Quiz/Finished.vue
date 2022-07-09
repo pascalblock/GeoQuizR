@@ -66,13 +66,15 @@
     </div>
 
     <q-page-sticky position="bottom" :offset="[0, 18]">
-      <q-btn color="primary" no-caps @click="resetAllResults" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
+      <q-btn color="primary" no-caps @click="increasePlayerCounter() ;resetAllResults()" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
     </q-page-sticky>
   </q-page>
 </template>
 
 <script>
 import ResultCard from "components/ResultCard";
+import {db} from "boot/firebase";
+import {doc, updateDoc, increment } from "firebase/firestore";
 
 export default {
   name: "Finished",
@@ -121,12 +123,21 @@ export default {
       this.farPercent = Math.round((farAnswerCount/farAwayAns.length)*100)
     },
 
-
     resetAllResults(){
       this.$store.commit('clearSelectedQuiz')
       this.$store.commit('clearActualQuestion')
       this.$store.commit('clearFinishedQuestions')
       this.$store.commit('clearStepCount')
+    },
+
+    async increasePlayerCounter(){
+      const quizID = this.$store.state.selectedQuiz.id
+
+      const playerRef = doc(db, 'quiz', quizID)
+
+      await updateDoc(playerRef, {
+        player: increment(1)
+      });
     }
   }
 }
