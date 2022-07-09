@@ -8,7 +8,7 @@ export default {
   },
   mutations: {
     saveUserAnswer(state, answer){
-      state.finishedQuestions = [...state.finishedQuestions, {answer}]
+      state.finishedQuestions = [...state.finishedQuestions, {...answer}]
     },
 
     storeSelectedQuiz (state, selectedQuiz) {
@@ -30,5 +30,9 @@ export default {
     clearActualQuestion (state) {
       state.actualQuestion = {}
     },
+
+    clearFinishedQuestions(state) {
+      state.finishedQuestions = []
+    }
   }
 }

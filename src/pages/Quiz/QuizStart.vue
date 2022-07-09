@@ -19,6 +19,7 @@ export default {
     resetQuizSelection(){
       this.$store.commit('clearSelectedQuiz')
       this.$store.commit('clearActualQuestion')
+      this.$store.commit('clearFinishedQuestions')
     }
   }
 }

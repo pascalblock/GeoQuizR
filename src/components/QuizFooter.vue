@@ -1,7 +1,7 @@
 <template>
   <div class="mefo-quiz-footer row">
     <div class="col-6 mefo-prev-quest">
-      <q-btn class="eras-font-demi" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
+      <q-btn class="eras-font-demi" @click="prevQuestionHandler" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
     </div>
     <div class="col-6 mefo-next-quest">
       <q-btn class="eras-font-demi" @click="nextQuestionHandler(); saveAnswerHandler(); calcDistanceHandler()" :label="$t('quizFrame.footer.next')" color="primary" unelevated no-caps />
@@ -22,6 +22,9 @@ export default {
     },
     calcDistanceHandler(){
       this.$emit('calc-Dist')
+    },
+    prevQuestionHandler(){
+      this.$emit('load-prevQuest')
     }
   }
 }
