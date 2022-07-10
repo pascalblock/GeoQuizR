@@ -215,10 +215,6 @@ export default {
         ...this.actualQuestion
       })
     },
-    async created () {
-      const response = await fetch('https://rawgit.com/gregoiredavid/france-geojson/master/regions/pays-de-la-loire/communes-pays-de-la-loire.geojson');
-      this.geojson = await response.json();
-    },
   }
 }
 </script>
