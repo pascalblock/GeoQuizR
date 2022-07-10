@@ -68,7 +68,7 @@ export default {
       maxZoom: 10,
       zoom: 8,
       geojson: null,
-      markerLatLang: [Math.random()*60, Math.random()*-10],
+      markerLatLang: [Math.random()*3+50, Math.random()*5+6],
       marker:
         {
           position: { lat: 47.313220, lang: -1.319482 },
