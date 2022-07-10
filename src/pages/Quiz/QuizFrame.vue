@@ -68,6 +68,7 @@ export default {
       maxZoom: 10,
       zoom: 8,
       geojson: null,
+      // Random marker on start placed in germany or close to germany
       markerLatLang: [Math.random()*3+50, Math.random()*5+6],
       marker:
         {
