@@ -58,8 +58,8 @@ export default {
     return {
       actualQuestionID: '',
       actualQuestion: {},
-      // url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
-      // url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+      //url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
+      //url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
       ext: 'png',
       // url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.{ext}',
       url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
@@ -68,7 +68,7 @@ export default {
       maxZoom: 10,
       zoom: 8,
       geojson: null,
-      markerLatLang: [47.313220, -1.319482],
+      markerLatLang: [Math.random()*60, Math.random()*-10],
       marker:
         {
           position: { lat: 47.313220, lang: -1.319482 },
