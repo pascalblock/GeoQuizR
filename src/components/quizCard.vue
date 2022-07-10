@@ -11,12 +11,12 @@
       />
 
       <div class="row no-wrap items-center">
-        <div class="col text-h6 ellipsis mefo-quiz-name">
+        <h6 class="col ellipsis mefo-quiz-name">
           {{ name }}
-        </div>
+        </h6>
         <div class="col-auto text-grey text-caption q-pt-md q-mr-sm row no-wrap items-center">
           <q-icon name="groups" class="q-mr-xs" />
-          {{ player }}
+          <p>{{ player }}</p>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
     </q-card-section>
 
     <q-card-actions class="mefo-quiz-select">
-      <q-btn style ="width: 180px;" @click="selectQuizHandler" color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
+      <q-btn class="eras-font-demi" style="width: 180px;" @click="selectQuizHandler" color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
     </q-card-actions>
   </q-card>
 </template>
