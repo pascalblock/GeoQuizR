@@ -58,8 +58,14 @@ export default {
     return {
       actualQuestionID: '',
       actualQuestion: {},
-      //url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
-      //url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+      // maps from Leaflet map providers: https://leaflet-extras.github.io/leaflet-providers/preview/
+      // osm with labels
+      // url: 'https://{s}.tile.openstreetmap.de/{z}/{x}/{y}.png',
+      // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      // white map without labels
+      // url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+      // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      // colored map without labels
       url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',      subdomains: 'abcd',
       minZoom: 4,
