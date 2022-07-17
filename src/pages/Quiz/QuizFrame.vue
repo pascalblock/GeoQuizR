@@ -9,11 +9,13 @@
     <p>{{calculatedDistance}}</p>
     <p>Index {{questionIndex}}</p>
 -->
+  <div class="relative-position text-center">
     <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
       <l-geo-json :geojson="geojson"></l-geo-json>
     </l-map>
+  </div>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}" />
     </q-page-sticky>

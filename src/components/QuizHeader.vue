@@ -4,10 +4,10 @@
       <p >{{ $t('quizFrame.header.question') }}</p>
       <p>{{this.$store.state.stepCounter}}/{{ this.$store.state.selectedQuiz.randomQuestions.length }}</p>
     </div>
-    <div class="row items-center">
-      <p class="q-pr-lg"><b>{{ this.$store.state.actualQuestion.name }}</b></p>
-      <q-btn color="primary" @click="titleSound($t('Language.key'))" icon="record_voice_over"></q-btn>
+    <div class="items-center">
+      <p><b>{{ this.$store.state.actualQuestion.name }}</b></p>
     </div>
+    <q-btn class="q-ml-lg" color="primary" @click="titleSound($t('Language.key'))" icon="record_voice_over"/>
   </div>
 </template>
 
