@@ -1,7 +1,9 @@
 <template>
   <div class="mefo-quiz-footer row">
     <div class="col-6 mefo-prev-quest">
+      <!--
       <q-btn class="eras-font-demi" @click="prevQuestionHandler" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
+     -->
     </div>
     <div class="col-6 mefo-next-quest">
       <!--$t('quizFrame.footer.next')-->

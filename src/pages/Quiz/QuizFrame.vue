@@ -17,7 +17,9 @@
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}" />
     </q-page-sticky>
-    <helpOptions />
+    <helpOptions
+      @layer-Switch="getRandomMap()"
+    />
     <!--
     @save-Answer="savePlayerAnswer()"
       @calc-Dist="calculateDistance()"
@@ -58,11 +60,12 @@ export default {
     return {
       actualQuestionID: '',
       actualQuestion: {},
-      // url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
-      // url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+      url: '',
+       //url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
+     // url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
       ext: 'png',
-      // url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.{ext}',
-      url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
+       //url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.{ext}',
+      //url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',      subdomains: 'abcd',
       minZoom: 4,
       maxZoom: 10,
@@ -83,6 +86,7 @@ export default {
   },
   created() {
     this.firstQuestion()
+    this.getInitialMap()
   },
 
   methods: {
@@ -116,6 +120,58 @@ export default {
       }
     },
  */
+    getInitialMap(){
+      const maps = this.$store.state.maps
+      this.url = maps[0]
+    },
+
+    getRandomMap(){
+      this.$q.loading.show(
+        {
+          spinnerColor: 'primary',
+          backgroundColor: 'secondary'
+        }
+      )
+      //console.log("initial", this.$store.state.actualMap)
+      const max = this.$store.state.maps.length
+      const randomMapIndex = Math.floor(Math.random() * max)
+      const randomMap = this.$store.state.maps[randomMapIndex]
+
+      const actualMapIndex = this.$store.state.actualMap
+      const actualMap = this.$store.state.maps[actualMapIndex]
+
+      console.log("actual", actualMap)
+      console.log(actualMapIndex)
+      console.log("random", randomMap)
+      console.log(randomMapIndex)
+      console.log("map id", this.$store.state.actualMap)
+
+      //this.url = ''
+      //const maps = this.$store.state.maps
+
+      if(actualMap !== randomMap) {
+        this.url = randomMap
+        console.log("erfolg", randomMap)
+
+        this.$store.commit('storeNewActualMap', {
+          actualMapID: randomMapIndex
+        })
+        console.log("map id in if", this.$store.state.actualMap)
+        this.$q.loading.hide()
+
+      } else{
+        this.getRandomMap()
+        console.log("neuer Durchgang", randomMap)
+        this.$q.loading.hide()
+      }
+      /*
+      const arr = this.$store.state.maps;
+      const length = this.$store.state.maps.length
+
+      const choices = arr.sort(() => Math.random() - 0.5).slice(0, length)
+      console.log(choices);
+       */
+    },
 
     increaseStepCount(){
       if(this.$store.state.stepCounter < this.$store.state.selectedQuiz.randomQuestions.length) {

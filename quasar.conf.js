@@ -27,6 +27,10 @@ module.exports = configure(function (ctx) {
       'firebase',
     ],
 
+    bin: {
+      windowsAndroidStudio: 'C:\\Users\\Pascal Block\\AppData\\Local\\JetBrains\\Toolbox\\apps\\AndroidStudio\\ch-0\\211.7628.21.2111.8309675\\bin\\studio64.exe'
+    },
+
     // https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
       'app.scss'
