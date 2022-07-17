@@ -121,7 +121,6 @@ export default {
       }
     },
  */
-
     increaseStepCount(){
       if(this.$store.state.stepCounter < this.$store.state.selectedQuiz.randomQuestions.length) {
         this.$store.commit('increaseStepCounter')
