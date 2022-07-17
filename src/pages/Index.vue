@@ -4,13 +4,26 @@
       @refresh="refresh"
       color="primary"
       icon="location_on"
+      class=""
     >
-    <quizCard
-      v-for="quiz in availableQuizzes"
-      :key="quiz.id"
-      v-bind="quiz"
-      @select-quiz="selectTheQuiz(quiz)"
-    />
+    <div class="gt-sm quiz-wrapper">
+      <quizCard
+        v-for="quiz in availableQuizzes"
+        :key="quiz.id"
+        v-bind="quiz"
+        @select-quiz="selectTheQuiz(quiz)"
+        class=""
+      />
+    </div>
+      <div class="lt-md">
+      <quizCard
+        v-for="quiz in availableQuizzes"
+        :key="quiz.id"
+        v-bind="quiz"
+        @select-quiz="selectTheQuiz(quiz)"
+        class=""
+      />
+    </div>
     </q-pull-to-refresh>
   </q-page>
 </template>

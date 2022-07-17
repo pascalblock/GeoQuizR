@@ -64,6 +64,12 @@ p{
   text-decoration: none;
   color: white;
 }
+
+.quiz-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .mefo-page-header{
   border-bottom: 2px solid;
   border-bottom-color: $primary;

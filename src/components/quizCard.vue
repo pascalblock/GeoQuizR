@@ -1,6 +1,6 @@
 <template>
   <q-card class="mefo-quiz-card">
-    <q-img :ratio="16/9" src="../assets/quizImages/Maps.jpg" />
+    <q-img :ratio="16/9" style="max-height: 500px" src="../assets/quizImages/Maps.jpg" />
     <q-card-section>
       <q-btn
         fab
