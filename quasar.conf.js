@@ -25,6 +25,7 @@ module.exports = configure(function (ctx) {
       'i18n',
       'axios',
       'firebase',
+      'capacitor'
     ],
 
     bin: {

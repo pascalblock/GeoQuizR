@@ -12,6 +12,7 @@
   "dependencies": {
     "@capacitor/core": "^3.6.0",
     "@capacitor/screen-reader": "^1.0.8",
+    "@ionic/pwa-elements": "^3.1.1",
     "@quasar/extras": "^1.0.0",
     "@vue-leaflet/vue-leaflet": "^0.6.1",
     "axios": "^0.21.1",
