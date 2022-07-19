@@ -12,7 +12,7 @@
   <div class="relative-position text-center">
     <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
+      <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible"></l-marker>
       <l-geo-json :geojson="geojson"></l-geo-json>
     </l-map>
   </div>
@@ -78,7 +78,6 @@ export default {
       markerLatLang: [Math.random()*3+50, Math.random()*5+6],
       marker:
         {
-          position: { lat: 47.313220, lang: -1.319482 },
           visible: true,
           draggable: true,
         },
