@@ -97,6 +97,7 @@ export default {
     title: 'Sprache',
     de: 'Deutsch',
     en: 'Englisch',
+    key: 'de',
   },
   Error: {
     error_404: {

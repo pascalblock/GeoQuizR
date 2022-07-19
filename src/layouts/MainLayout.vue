@@ -22,7 +22,7 @@
       v-model="rightDrawerOpen"
       show-if-above
       bordered
-      class="bg-grey-1"
+      class="bg-grey-1 eras-font"
     >
       <q-list>
         <EssentialLink
@@ -40,7 +40,7 @@
           emit-value
           map-options
           options-dense
-          class="q-pl-md q-pt-sm q-pb-sm q-pr-md"
+          class="q-pl-md q-pt-sm q-pb-sm q-pr-md eras-font"
           style="width: 100%"
         />
       </q-list>

@@ -25,9 +25,7 @@ $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;
 
-
-
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, h6{
   font-family: 'Eras Demi ITC', sans-serif;
   color: $secondary;
 }
@@ -66,6 +64,12 @@ p{
   text-decoration: none;
   color: white;
 }
+
+.quiz-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .mefo-page-header{
   border-bottom: 2px solid;
   border-bottom-color: $primary;
