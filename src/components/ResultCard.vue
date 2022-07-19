@@ -20,7 +20,9 @@
         <div v-show="expanded">
           <q-separator />
           <q-card-section class="text-subitle2">
-            {{ lorem }}
+            <p>{{ information }}</p>
+
+            <p>{{ $t('resultPage.card.informationSource') }} {{ informationSource }} </p>
           </q-card-section>
         </div>
       </q-slide-transition>
@@ -41,16 +43,28 @@ export default {
     distance: {
       type: Number,
       required: true
+    },
+    information: {
+      type: String,
+      required: true
+    },
+    informationSource: {
+      type: String,
+      required: true
     }
   },
 
   setup () {
     return {
       expanded: ref(false),
-      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }
   },
   computed: {
+    /**
+     * Defines how well the player guessed (Distance in km)
+     * @returns {{farAway: boolean, furtherAway: boolean, close: boolean}}
+     */
+
     resultRating(){
       return {
         close: this.distance < 30,

@@ -49,7 +49,8 @@ export default {
 
     card: {
       result1: 'Your tip was ',
-      result2: 'km away.'
+      result2: 'km away.',
+      informationSource: 'Source:'
     }
   },
   FAQ: {

@@ -101,6 +101,10 @@ export default {
   },
 
   methods:{
+    /**
+     * The following three functions calculate how many answers were good, average and bad
+     */
+
     closeAnswers(){
       const closeAns = this.$store.state.finishedQuestions
       this.closeAnswersArray = closeAns.filter(answer => answer.distance < 30)
@@ -123,12 +127,21 @@ export default {
       this.farPercent = Math.round((farAnswerCount/farAwayAns.length)*100)
     },
 
+    /**
+     * Resets all data stored in the vuex store.
+     */
+
     resetAllResults(){
       this.$store.commit('clearSelectedQuiz')
       this.$store.commit('clearActualQuestion')
       this.$store.commit('clearFinishedQuestions')
       this.$store.commit('clearStepCount')
     },
+
+    /**
+     * Increases the number of users in the database
+     * @returns {Promise<void>}
+     */
 
     async increasePlayerCounter(){
       const quizID = this.$store.state.selectedQuiz.id

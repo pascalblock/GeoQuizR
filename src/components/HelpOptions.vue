@@ -20,13 +20,19 @@ export default {
   },
 
   methods: {
+
+    /**
+     * @returns {Promise<void>}
+     * Capacitor Screen Reader that outputs the help text through the device's speakers.
+     */
+
     async helpSound(languageKey){
       this.sound = this.$store.state.actualQuestion.help
       await ScreenReader.speak({value: this.sound, language: languageKey});
     },
     layerSwitchHandler(){
       this.$emit('layer-Switch')
-    },
+    }
   }
 }
 </script>

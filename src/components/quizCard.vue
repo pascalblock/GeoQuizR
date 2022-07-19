@@ -15,7 +15,7 @@
           {{ name }}
         </h6>
         <div class="col-auto text-grey text-caption q-pt-md q-mr-sm row no-wrap items-center">
-          <q-icon name="groups" class="q-mr-xs" />
+          <q-icon name="groups" class="q-mr-xs q-mb-md" />
           <p>{{ player }}</p>
         </div>
       </div>

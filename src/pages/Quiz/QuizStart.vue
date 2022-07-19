@@ -16,6 +16,10 @@ export default {
   name: "QuizStart",
 
   methods:{
+    /**
+     * Resets all data stored in the vuex store.
+     */
+
     resetQuizSelection(){
       this.$store.commit('clearSelectedQuiz')
       this.$store.commit('clearActualQuestion')

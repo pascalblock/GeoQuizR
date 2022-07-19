@@ -49,7 +49,8 @@ export default {
 
     card: {
       result1: 'Deine Tipp war ',
-      result2: 'km entfernt.'
+      result2: 'km entfernt.',
+      informationSource: 'Quelle:'
     }
   },
 

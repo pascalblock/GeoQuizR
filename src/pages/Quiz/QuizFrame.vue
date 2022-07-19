@@ -1,14 +1,6 @@
 <template>
   <q-page>
     <quizHeader />
-<!--
-    <p>{{ this.$store.state.actualQuestion }}</p>
-    <p>{{markerLatLang}}</p>
-    <p>{{ this.$store.state.finishedQuestions }}</p>
-    <p>{{ markerLatLang.lat }}, {{ markerLatLang.lng}}</p>
-    <p>{{calculatedDistance}}</p>
-    <p>Index {{questionIndex}}</p>
--->
     <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible" ></l-marker>
@@ -20,12 +12,6 @@
     <helpOptions
       @layer-Switch="getRandomMap()"
     />
-    <!--
-    @save-Answer="savePlayerAnswer()"
-      @calc-Dist="calculateDistance()"
-      @load-prevQuest="previousQuestion()"
-      @step-Counter=""
-    -->
     <quizFooter
       @save-Answer="saveProcess()"
       @load-nextQuest="nextQuestion()"
@@ -61,11 +47,7 @@ export default {
       actualQuestionID: '',
       actualQuestion: {},
       url: '',
-       //url: 'https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png',
-     // url: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
       ext: 'png',
-       //url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.{ext}',
-      //url: 'https://stamen-tiles-{s}.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}{r}.png',
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',      subdomains: 'abcd',
       minZoom: 4,
       maxZoom: 10,
@@ -88,44 +70,21 @@ export default {
   created() {
     this.firstQuestion()
     this.getInitialMap()
+    console.log(this.markerLatLang)
   },
 
   methods: {
-    /*
-    previousQuestion(){
-      console.log('vorherige Frage')
-      this.prevQuestion = this.$store.state.finishedQuestions[this.finishedQuestionsLength-1]
-      console.log('vor Frage: ', this.prevQuestion)
-      this.finishedQuestionsLength--
-      this.actualQuestion = this.prevQuestion
-      this.$store.commit('storeActualQuestion', {
-        ...this.actualQuestion
-      })
-      console.log('Store Frage', this.$store.state.actualQuestion)
-    },
+    /**
+     * The first map that is loaded from the Vuex Store initially.
      */
-    /*
-    previousQuestion(){
-      this.finishedQuestionsLength--
-      if(this.$store.state.finishedQuestions.length > 0) {
-        this.prevQuestion = this.$store.state.finishedQuestions[this.finishedQuestionsLength]
-        console.log(this.prevQuestion)
-        this.actualQuestion = this.prevQuestion
-        this.$store.commit('storeActualQuestion', {
-          ...this.actualQuestion
-        })
-
-      }else {
-        this.prevQuestion = this.$store.state.finishedQuestions.at(0)
-        console.log(this.prevQuestion)
-      }
-    },
- */
     getInitialMap(){
       const maps = this.$store.state.maps
       this.url = maps[0]
     },
 
+    /**
+     * Loads a random map from the vuex store that is not the same as before
+     */
     getRandomMap(){
       this.$q.loading.show(
         {
@@ -133,7 +92,6 @@ export default {
           backgroundColor: 'secondary'
         }
       )
-      //console.log("initial", this.$store.state.actualMap)
       const max = this.$store.state.maps.length
       const randomMapIndex = Math.floor(Math.random() * max)
       const randomMap = this.$store.state.maps[randomMapIndex]
@@ -141,53 +99,45 @@ export default {
       const actualMapIndex = this.$store.state.actualMap
       const actualMap = this.$store.state.maps[actualMapIndex]
 
-      console.log("actual", actualMap)
-      console.log(actualMapIndex)
-      console.log("random", randomMap)
-      console.log(randomMapIndex)
-      console.log("map id", this.$store.state.actualMap)
-
-      //this.url = ''
-      //const maps = this.$store.state.maps
-
       if(actualMap !== randomMap) {
         this.url = randomMap
-        console.log("erfolg", randomMap)
 
         this.$store.commit('storeNewActualMap', {
           actualMapID: randomMapIndex
         })
-        console.log("map id in if", this.$store.state.actualMap)
         this.$q.loading.hide()
 
       } else{
         this.getRandomMap()
-        console.log("neuer Durchgang", randomMap)
         this.$q.loading.hide()
       }
-      /*
-      const arr = this.$store.state.maps;
-      const length = this.$store.state.maps.length
-
-      const choices = arr.sort(() => Math.random() - 0.5).slice(0, length)
-      console.log(choices);
-       */
     },
 
+    /**
+     * Increases the step counter to show the player his progress in the quiz.
+     */
     increaseStepCount(){
       if(this.$store.state.stepCounter < this.$store.state.selectedQuiz.randomQuestions.length) {
         this.$store.commit('increaseStepCounter')
       }
     },
 
+    /**
+     * First calls the distance calculation and then, if successful, the save function
+     */
+
     saveProcess() {
       this.calculateDistance()
-        if(this.calculatedDistance !== null){
+        if(this.calculatedDistance === !Number.isNaN(this.calculatedDistance)){
           this.savePlayerAnswer()
         }else{
           console.log('Etwas ist bei der Brechnung schief gelaufen!')
         }
       },
+
+    /**
+     * Saves all given answers of the player in the vuex store
+     */
 
     savePlayerAnswer(){
       this.$store.commit('saveUserAnswer', {
@@ -199,6 +149,16 @@ export default {
        ...this.actualQuestion
       })
     },
+
+    /**
+     * Calculates the distance between the entered coordinates and those from the DB in kilometers
+     * @param lat1 latitude of the current question
+     * @param lon1 longitude of the current question
+     * @param lat2 entered latitude of the player
+     * @param lon2 entered longitude of the player
+     * @param unit return unit in Km
+     * @returns {number}
+     */
 
     calculateDistance(
       lat1 = this.actualQuestion.location.latitude,
@@ -230,25 +190,35 @@ export default {
       }
     },
 
+    /**
+     * Loads initial first questionID and calls the DB request
+     */
     firstQuestion(){
       const questionID = this.$store.state.selectedQuiz.randomQuestions[0]
       this.actualQuestionID = questionID
       this.getQuestion()
     },
 
+    /**
+     * Loads all the following questionIDs until the last one. Then it redirects to the Finished page
+     */
+
     nextQuestion(){
       if(this.questionIndex < this.$store.state.selectedQuiz.randomQuestions.length){
         const questionID = this.$store.state.selectedQuiz.randomQuestions[this.questionIndex]
         this.actualQuestionID = questionID
         this.questionIndex++
-        console.log(this.questionIndex)
         this.getQuestion()
         this.finishedQuestionsLength++
-        console.log('Länge', this.finishedQuestionsLength)
       } else {
         this.$router.push({ name: 'Finished' })
       }
     },
+
+    /**
+     * Loads questions from the database using the corresponding ID
+     * @returns {Promise<void>}
+     */
 
     async getQuestion(){
       const question = query(collection(db, 'questions'))
@@ -262,7 +232,8 @@ export default {
             ...doc.data(),
             id: doc.id,
             help: doc.data().help[lanG],
-            name: doc.data().name[lanG]
+            name: doc.data().name[lanG],
+            information: doc.data().information[lanG]
           }
         }
       })
@@ -272,6 +243,7 @@ export default {
         ...this.actualQuestion
       })
     },
+
     async created () {
       const response = await fetch('https://rawgit.com/gregoiredavid/france-geojson/master/regions/pays-de-la-loire/communes-pays-de-la-loire.geojson');
       this.geojson = await response.json();

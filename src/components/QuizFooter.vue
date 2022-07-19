@@ -6,7 +6,6 @@
      -->
     </div>
     <div class="col-6 mefo-next-quest">
-      <!--$t('quizFrame.footer.next')-->
       <q-btn class="eras-font-demi"
              @click="
              incStepCounterHandler();
