@@ -28,11 +28,11 @@
       </q-card-actions>
     </div>
     <div class="gt-sm col">
-      <l-map class="" style="border-radius: 0" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
+      <l-map class="" style="border-radius: 0" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="seekedLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :visible="marker.visible" >
+        <l-marker :icon="marker.icon" v-model:lat-lng="seekedLatLang" :visible="marker.visible" >
         </l-marker>
-        <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang2" :visible="marker.visible" >
+        <l-marker :icon="marker.icon" v-model:lat-lng="markedLatLang" :visible="marker.visible" >
         </l-marker>
         <l-polyline :lat-lngs="polyline.latlngs" :color="polyline.color"></l-polyline>
       </l-map>
@@ -55,7 +55,7 @@ export default {
     distance: {
       type: Number,
       required: true
-    }
+    },
   },
   components: {
     LMap,
@@ -72,9 +72,10 @@ export default {
       maxZoom: 10,
       zoom: 4,
       geojson: null,
-      // Random marker on start placed in germany or close to germany
-      markerLatLang: [48.35693, 10.98461],
-      markerLatLang2: [50.11552, 8.68417],
+      // seeked location
+      seekedLatLang: [48.35693, 10.98461],
+      // marked location
+      markedLatLang: [50.11552, 8.68417],
       polyline: {
         latlngs: [[48.35693, 10.98461], [50.11552, 8.68417]],
         color: 'purple',
@@ -90,7 +91,7 @@ export default {
   setup () {
     return {
       expanded: ref(false),
-      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      lorem: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     }
   },
   computed: {
