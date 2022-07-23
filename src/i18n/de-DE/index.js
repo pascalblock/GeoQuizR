@@ -41,11 +41,17 @@ export default {
       next: 'nächste Frage',
       last: 'zum Ergebnis'
     },
+
+    informationNotify: {
+      message: 'Bewege den Pin um deine erste Antwort abgeben zu können.'
+    }
   },
   resultPage: {
     headline: 'Deine Ergebnisse',
     statistics: 'Auswertung',
     goToHome: 'Zurück zur Quiz-Übersicht',
+
+    noPolyLine: 'Es konnte leider keine Linie zwischen deiner Antwort und der richtigen Antwort gezogen werden.',
 
     card: {
       result1: 'Deine Tipp war ',

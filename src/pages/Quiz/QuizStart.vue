@@ -25,6 +25,7 @@ export default {
       this.$store.commit('clearActualQuestion')
       this.$store.commit('clearFinishedQuestions')
       this.$store.commit('clearStepCount')
+      this.$store.commit('resetInitialMarkerLatLangBool')
     }
   }
 }

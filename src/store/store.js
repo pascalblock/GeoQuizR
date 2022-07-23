@@ -17,9 +17,18 @@ export default {
       'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
       //'https://s3.amazonaws.com/te512.safecast.org/{z}/{x}/{y}.png',
     ],
-    actualMap: 0
+    actualMap: 0,
+
+    initialMarkerLatLangBool: true
   },
   mutations: {
+    changeInitialMarkerBool(state){
+      state.initialMarkerLatLangBool = false
+    },
+    resetInitialMarkerLatLangBool(state) {
+      state.initialMarkerLatLangBool = true
+    },
+
     storeNewActualMap(state, payload){
       state.actualMap = payload.actualMapID
     },
@@ -57,6 +66,6 @@ export default {
     },
     clearStepCount(state) {
       state.stepCounter = 1
-    }
+    },
   }
 }

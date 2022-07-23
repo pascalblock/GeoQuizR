@@ -65,7 +65,7 @@
       />
     </div>
 
-    <q-page-sticky position="bottom" :offset="[0, 18]">
+    <q-page-sticky position="bottom" class="mefo-overlap" :offset="[0, 18]">
       <q-btn color="primary" no-caps @click="increasePlayerCounter() ;resetAllResults()" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
     </q-page-sticky>
   </q-page>
@@ -136,6 +136,7 @@ export default {
       this.$store.commit('clearActualQuestion')
       this.$store.commit('clearFinishedQuestions')
       this.$store.commit('clearStepCount')
+      this.$store.commit('resetInitialMarkerLatLangBool')
     },
 
     /**
@@ -165,6 +166,14 @@ export default {
 
 .mefo-results{
   margin-bottom: 5rem;
+}
+
+.mefo-overlap{
+  z-index: 2147483646;
+
+  q-btn{
+    z-index: 2147483647;
+  }
 }
 
 </style>

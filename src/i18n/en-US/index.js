@@ -40,12 +40,17 @@ export default {
       prev: 'prev Question',
       next: 'next Question',
       last: 'to result'
+    },
+
+    informationNotify: {
+      message: 'Move the pin to submit your first answer.'
     }
   },
   resultPage: {
     headline: 'Your Results',
     statistics: 'Analysis',
     goToHome: 'To the quiz overview',
+    noPolyLine: 'Unfortunately, no line could be drawn between your answer and the correct answer.',
 
     card: {
       result1: 'Your tip was ',

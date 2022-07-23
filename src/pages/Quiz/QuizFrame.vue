@@ -1,15 +1,16 @@
 <template>
   <q-page>
-    <quizHeader />
+    <quizHeader/>
     <div class="relative-position text-center">
-    <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
-      <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable" :visible="marker.visible"></l-marker>
-      <l-geo-json :geojson="geojson"></l-geo-json>
-    </l-map>
-  </div>
+      <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
+        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"
+                  :visible="marker.visible"></l-marker>
+        <l-geo-json :geojson="geojson"></l-geo-json>
+      </l-map>
+    </div>
     <q-page-sticky position="bottom-left" :offset="[18, 56]">
-      <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}" />
+      <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}"/>
     </q-page-sticky>
     <helpOptions
       @layer-Switch="getRandomMap()"
@@ -18,6 +19,7 @@
       @save-Answer="saveProcess()"
       @load-nextQuest="nextQuestion()"
       @inc-StepCounter="increaseStepCount()"
+      v-bind="initialMarkerLatLangBool"
     />
   </q-page>
 </template>
@@ -57,6 +59,8 @@ export default {
       geojson: null,
       // Random marker on start placed in germany or close to germany
       markerLatLang: [Math.random()*3+50, Math.random()*5+6],
+      initialMarkerLatLang: [],
+      initialMarkerLatLangBool: true,
       marker:
         {
           visible: true,
@@ -72,9 +76,39 @@ export default {
     this.firstQuestion()
     this.getInitialMap()
     console.log(this.markerLatLang)
+
+    if(this.$store.state.stepCounter === 1){
+      this.showInitialInfo()
+      this.initialMarkerLatLang = this.markerLatLang
+    }
+  },
+
+  watch: {
+    markerLatLang(newMarker, oldMarker){
+      if(newMarker !== this.initialMarkerLatLang){
+        this.$store.commit('changeInitialMarkerBool')
+        this.initialMarkerLatLang = []
+      }
+    }
   },
 
   methods: {
+    /**
+     * The
+     */
+
+    showInitialInfo(){
+      this.$q.notify({
+        message: this.$t('quizFrame.informationNotify.message'),
+        color: 'secondary',
+        position: 'top',
+        progress: true,
+        actions: [
+          { label: 'Verstanden', color: 'white' }
+        ]
+      })
+    },
+
     /**
      * The first map that is loaded from the Vuex Store initially.
      */
@@ -131,6 +165,8 @@ export default {
       this.calculateDistance()
         if(this.calculatedDistance !== null){
           this.savePlayerAnswer()
+          this.$store.commit('resetInitialMarkerLatLangBool')
+          console.log('4')
         }else{
           console.log('Etwas ist bei der Brechnung schief gelaufen!')
         }
@@ -211,6 +247,7 @@ export default {
         this.questionIndex++
         this.getQuestion()
         this.finishedQuestionsLength++
+
       } else {
         this.$router.push({ name: 'Finished' })
       }
@@ -239,10 +276,12 @@ export default {
         }
       })
       console.log('Frage', this.actualQuestion)
-
       this.$store.commit('storeActualQuestion', {
         ...this.actualQuestion
       })
+      if(this.$store.state.stepCounter > 1){
+        this.$store.commit('changeInitialMarkerBool')
+      }
     },
 
     async created () {

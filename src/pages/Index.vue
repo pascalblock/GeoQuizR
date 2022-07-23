@@ -56,21 +56,7 @@ export default defineComponent({
   watch: {
     currentLang: function(value){
       console.log('watch', value)
-    },
-
-    /*currentLang(newLang, oldLang){
-      if( this.currentLang !== this.$i18n.locale ){
-        this.getQuiz()
-        console.log('Mooooin')
-      } else {
-        console.log('Fail')
-      }
-    },*/
-
-    /*currentLang: function(value){
-      console.log(value, 'teeeesst')
-      this.getQuiz()
-    }*/
+    }
   },
 
 

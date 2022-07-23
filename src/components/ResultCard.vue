@@ -30,7 +30,7 @@
       </q-card-actions>
     </div>
     <div class="gt-sm col">
-      <l-map class="" style="border-radius: 0" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="seekedLatLang">
+      <l-map class="" style="border-radius: 0; height: 100%" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="seekedLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <l-marker :icon="marker.icon" v-model:lat-lng="seekedLatLang" :visible="marker.visible" >
         </l-marker>
@@ -65,6 +65,14 @@ export default {
     informationSource: {
       type: String,
       required: true
+    },
+    savedLocation: {
+      type: Object,
+      required: false
+    },
+    location: {
+      type: Object,
+      required: false
     }
   },
 
@@ -84,11 +92,11 @@ export default {
       zoom: 4,
       geojson: null,
       // seeked location
-      seekedLatLang: [48.35693, 10.98461],
+      seekedLatLang: [],
       // marked location
-      markedLatLang: [50.11552, 8.68417],
+      markedLatLang: [],
       polyline: {
-        latlngs: [[48.35693, 10.98461], [50.11552, 8.68417]],
+        latlngs: [[], []],
         color: 'purple',
       },
       marker:
@@ -97,6 +105,42 @@ export default {
           draggable: true,
         }
     };
+  },
+
+  created() {
+    this.setMarkedLocation()
+    this.setSeekedLocation()
+    if (this.seekedLatLang.length > 0 && this.markedLatLang.length > 0) {
+      this.setPolyLine()
+    } else{
+      this.$q.notify({
+        message: this.$t('resultPage.noPolyLine'),
+        color: 'secondary',
+        position: 'top'
+      })
+    }
+
+  },
+
+  methods: {
+    setMarkedLocation(){
+      this.markedLatLang = [
+        this.savedLocation.lat,
+        this.savedLocation.long
+      ];
+    },
+    setSeekedLocation(){
+      this.seekedLatLang = [
+        this.location.latitude,
+        this.location.longitude
+      ]
+    },
+    setPolyLine(){
+      this.polyline.latlngs = [
+        this.seekedLatLang,
+        this.markedLatLang
+      ]
+    }
   },
 
   setup () {
@@ -135,6 +179,7 @@ export default {
 }
 .map{
   width: 50%;
+  height: 100%;
 }
 
 .close{
