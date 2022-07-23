@@ -128,7 +128,7 @@ export default {
 
     saveProcess() {
       this.calculateDistance()
-        if(this.calculatedDistance === !Number.isNaN(this.calculatedDistance)){
+        if(this.calculatedDistance !== null){
           this.savePlayerAnswer()
         }else{
           console.log('Etwas ist bei der Brechnung schief gelaufen!')
