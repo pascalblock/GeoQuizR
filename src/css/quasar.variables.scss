@@ -14,13 +14,18 @@
 @import url('http://fonts.cdnfonts.com/css/nexa-rust-extras');
 @import url('http://fonts.cdnfonts.com/css/eras-demi-itc');
 
+// Quiz CI colors
 $primary   : #74139d;
 $secondary : #350948;
 $accent    : #b31df2;
 
-$dark      : #1D1D1D;
+// Destination distance feedback
+$answerGood: green;
+$answerOK: orange;
+$answerWrong: red;
 
-$positive  : #21BA45;
+// Quasar default
+$dark      : #1D1D1D;
 $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;

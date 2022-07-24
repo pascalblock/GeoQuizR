@@ -184,15 +184,21 @@ export default {
 }
 
 .close{
-  background-color: green;
+  border-radius: 0;
+  border-left: 15px solid;
+  border-left-color: $answerGood;
 }
 
 .furtherAway{
-  background-color: orange;
+  border-radius: 0;
+  border-left: 15px solid;
+  border-left-color: $answerOK;
 }
 
 .farAway{
-  background-color: red;
+  border-radius: 0;
+  border-left: 15px solid;
+  border-left-color: $answerWrong;
 }
 
 </style>
