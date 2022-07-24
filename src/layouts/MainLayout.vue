@@ -3,7 +3,7 @@
     <q-header elevated>
       <q-toolbar>
         <q-toolbar-title class="nexa-font">
-          <router-link to="/" class="titleRouter">GeoQuizR</router-link>
+          <router-link to="/" @click="resetQuizSelection" class="titleRouter">GeoQuizR</router-link>
         </q-toolbar-title>
 
         <q-btn
@@ -12,7 +12,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="toggleRightDrawer"
         />
       </q-toolbar>
     </q-header>
@@ -25,11 +25,39 @@
       class="bg-grey-1 eras-font"
     >
       <q-list>
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
+        <q-item clickable tag="a" :to="{ name: 'Faq' }">
+          <q-item-section avatar>
+            <q-icon name="quiz" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ this.$t('sideBar.faq') }}</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" :to="{ name: 'Contact' }">
+          <q-item-section avatar>
+            <q-icon name="contact_mail" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ this.$t('sideBar.contact') }}</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" :to="{ name: 'Imprint' }">
+          <q-item-section avatar>
+            <q-icon name="policy" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ this.$t('sideBar.imprint') }}</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" :to="{ name: 'Settings' }">
+          <q-item-section avatar>
+            <q-icon name="settings" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ this.$t('sideBar.config') }}</q-item-label>
+          </q-item-section>
+        </q-item>
+
 
         <q-select
           v-model="locale"
@@ -61,44 +89,13 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
-    EssentialLink
-  },
-
-  data(){
-    return {
-      linksList: [
-        {
-          title: this.$t('sideBar.faq'),
-          icon: "quiz",
-          link: "Faq",
-        },
-        {
-          title: this.$t('sideBar.contact'),
-          icon: "contact_mail",
-          link: "Contact",
-        },
-        {
-          title: this.$t('sideBar.imprint'),
-          icon: "policy",
-          link: "Imprint",
-        },
-        {
-          title: this.$t('sideBar.config'),
-          icon: "settings",
-          link: "Settings",
-        }
-      ]
-    }
-  },
-
   setup () {
     const rightDrawerOpen = ref(false)
     const { locale } = useI18n({ useScope: 'global' })
 
     return {
       rightDrawerOpen,
-      toggleLeftDrawer () {
+      toggleRightDrawer () {
         rightDrawerOpen.value = !rightDrawerOpen.value
       },
 
@@ -107,6 +104,27 @@ export default defineComponent({
         { value: 'en-US', label: 'English'},
         { value: 'de-DE', label: 'Deutsch' }
       ]
+    }
+  },
+
+  watch: {
+    locale(newLang, oldLang){
+      if(newLang !== oldLang){
+      }
+    }
+  },
+
+  methods:{
+    /**
+     * Resets all data stored in the vuex store.
+     */
+
+    resetQuizSelection(){
+      this.$store.commit('clearSelectedQuiz')
+      this.$store.commit('clearActualQuestion')
+      this.$store.commit('clearFinishedQuestions')
+      this.$store.commit('clearStepCount')
+      this.$store.commit('resetInitialMarkerLatLangBool')
     }
   }
 })

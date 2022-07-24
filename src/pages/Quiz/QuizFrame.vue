@@ -104,7 +104,7 @@ export default {
         position: 'top',
         progress: true,
         actions: [
-          { label: 'Verstanden', color: 'white' }
+          { iconRight: 'close', color: 'white' }
         ]
       })
     },
@@ -292,6 +292,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

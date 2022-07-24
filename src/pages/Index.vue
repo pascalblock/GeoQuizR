@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
 import { db, auth } from "src/boot/firebase";
 import quizCard from "components/quizCard";
@@ -44,22 +44,12 @@ export default defineComponent({
   data() {
     return {
       availableQuizzes: [],
-      currentLang: this.$i18n.locale
     }
   },
 
   created() {
     this.getQuiz()
-    //this.currentLang = this.$i18n.locale
   },
-
-  watch: {
-    currentLang: function(value){
-      console.log('watch', value)
-    }
-  },
-
-
 
   methods: {
     async getQuiz(){

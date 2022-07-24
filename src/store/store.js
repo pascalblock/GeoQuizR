@@ -18,8 +18,7 @@ export default {
       //'https://s3.amazonaws.com/te512.safecast.org/{z}/{x}/{y}.png',
     ],
     actualMap: 0,
-
-    initialMarkerLatLangBool: true
+    initialMarkerLatLangBool: true,
   },
   mutations: {
     changeInitialMarkerBool(state){

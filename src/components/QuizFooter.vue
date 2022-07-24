@@ -16,6 +16,7 @@
              unelevated
              no-caps
              :disable="this.$store.state.initialMarkerLatLangBool"
+             :loading="this.$store.state.initialMarkerLatLangBool && this.$store.state.stepCounter > 1"
       >
         {{ this.$store.state.stepCounter === this.$store.state.selectedQuiz.randomQuestions.length ? $t('quizFrame.footer.last') : $t('quizFrame.footer.next') }}
       </q-btn>
