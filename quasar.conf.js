@@ -182,7 +182,7 @@ module.exports = configure(function (ctx) {
             src: 'icons/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
-          }
+          },
         ]
       }
     },

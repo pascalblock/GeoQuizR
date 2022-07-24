@@ -32,9 +32,19 @@
     <div v-show="!expanded" class="gt-sm col">
       <l-map class="" style="border-radius: 0; height: 100%" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="seekedLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :icon="marker.icon" v-model:lat-lng="seekedLatLang" :visible="marker.visible" >
+        <l-marker v-model:lat-lng="seekedLatLang" :visible="marker.visible">
+          <l-icon
+            :icon-size="[30, 30]"
+            :icon-anchor="[15, 30]"
+            icon-url="icons/marker-green.png"
+          />
         </l-marker>
-        <l-marker :icon="marker.icon" v-model:lat-lng="markedLatLang" :visible="marker.visible" >
+        <l-marker v-model:lat-lng="markedLatLang" :visible="marker.visible">
+          <l-icon
+            :icon-size="[30, 30]"
+            :icon-anchor="[15, 30]"
+            icon-url="icons/marker-purple.png"
+          />
         </l-marker>
         <l-polyline :lat-lngs="polyline.latlngs" :color="polyline.color"></l-polyline>
       </l-map>
@@ -45,7 +55,7 @@
 <script>
 import { ref } from 'vue'
 import "leaflet/dist/leaflet.css"
-import { LMap, LTileLayer, LMarker, LPolyline } from "@vue-leaflet/vue-leaflet";
+import { LMap, LTileLayer, LMarker, LPolyline, LIcon } from "@vue-leaflet/vue-leaflet";
 
 
 export default {
@@ -82,6 +92,7 @@ export default {
     LTileLayer,
     LMarker,
     LPolyline,
+    LIcon,
   },
 
   data(){

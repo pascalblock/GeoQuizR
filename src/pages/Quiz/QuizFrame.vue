@@ -8,9 +8,9 @@
         <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"
                   :visible="marker.visible">
           <l-icon
-            :icon-size="[40,40]"
-            :icon-anchor="[22, 94]"
-            icon-url="https://cdn.frankerfacez.com/static/emoji/images/twemoji/1f489.png"
+            :icon-size="[50, 50]"
+            :icon-anchor="[25, 50]"
+            icon-url="icons/marker-purple.png"
           />
         </l-marker>
         <l-geo-json :geojson="geojson"></l-geo-json>
