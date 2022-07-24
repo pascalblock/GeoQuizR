@@ -4,8 +4,15 @@
     <div class="relative-position text-center">
       <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+<!--        <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"-->
         <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"
-                  :visible="marker.visible"></l-marker>
+                  :visible="marker.visible">
+          <l-icon
+            :icon-size="[40,40]"
+            :icon-anchor="[22, 94]"
+            icon-url="https://cdn.frankerfacez.com/static/emoji/images/twemoji/1f489.png"
+          />
+        </l-marker>
         <l-geo-json :geojson="geojson"></l-geo-json>
       </l-map>
     </div>
@@ -31,7 +38,7 @@ import helpOptions from "components/HelpOptions";
 import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
 import { db, auth } from "src/boot/firebase";
 import "leaflet/dist/leaflet.css"
-import { LMap, LGeoJson, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
+import { LMap, LGeoJson, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 
 export default {
   name: "QuizFrame",
@@ -44,6 +51,7 @@ export default {
     LGeoJson,
     LTileLayer,
     LMarker,
+    LIcon,
   },
 
   data(){
