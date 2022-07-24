@@ -29,7 +29,7 @@
         </q-slide-transition>
       </q-card-actions>
     </div>
-    <div class="gt-sm col">
+    <div v-show="!expanded" class="gt-sm col">
       <l-map class="" style="border-radius: 0; height: 100%" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="seekedLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <l-marker :icon="marker.icon" v-model:lat-lng="seekedLatLang" :visible="marker.visible" >
@@ -46,6 +46,7 @@
 import { ref } from 'vue'
 import "leaflet/dist/leaflet.css"
 import { LMap, LTileLayer, LMarker, LPolyline } from "@vue-leaflet/vue-leaflet";
+
 
 export default {
   name: "ResultCard",
