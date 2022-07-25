@@ -1,8 +1,8 @@
 <template>
   <q-page-sticky position="bottom" :offset="[0, 70]">
     <q-fab color="primary" icon="question_mark" direction="up">
-      <q-fab-action color="accent" @click="layerSwitchHandler"  icon="layers" :label="$t('quizFrame.helpOptions.layer')" />
-      <q-fab-action color="accent" @click="helpSound($t('Language.key'))" icon="volume_up" :label="$t('quizFrame.helpOptions.speech')" />
+      <q-fab-action class="mefo-help-options" color="accent" @click="layerSwitchHandler"  icon="layers" :label="$t('quizFrame.helpOptions.layer')" />
+      <q-fab-action class="mefo-help-options" color="accent" @click="helpSound($t('Language.key'))" icon="volume_up" :label="$t('quizFrame.helpOptions.speech')" />
     </q-fab>
   </q-page-sticky>
 </template>

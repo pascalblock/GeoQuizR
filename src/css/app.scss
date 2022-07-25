@@ -105,6 +105,25 @@ p{
   border-radius: 0;
 }
 
+// Quiz Card
+.mefo-quiz-card{
+  margin: 10px;
+  border-radius: 0;
+}
+
+.mefo-quiz-select{
+  display: flex;
+  justify-content: center;
+
+  .q-btn {
+    width: 60%;
+  }
+}
+
+.mefo-quiz-name{
+  text-transform: uppercase;
+}
+
 // Quiz Start
 .mefo-start-quiz{
   display: flex;
@@ -146,32 +165,27 @@ p{
     margin-bottom: 0;
   }
 }
+.mefo-quiz-header-question{
+  margin-left: 10px;
+  margin-right: 10px;
+
+  :hover{
+    color: $accent;
+    cursor: pointer;
+  }
+}
 
 .mefo-quiz-count{
-  padding-left: 1rem;
+  justify-content: left;
+  margin-left: 10px;
 
   :first-child{
     margin-right: .2rem;
   }
 }
 
-// Quiz Card
-.mefo-quiz-card{
-  margin: 10px;
-  border-radius: 0;
-}
-
-.mefo-quiz-select{
-  display: flex;
-  justify-content: center;
-
-  .q-btn {
-    width: 60%;
-  }
-}
-
-.mefo-quiz-name{
-  text-transform: uppercase;
+// Quiz HelpOptions
+.mefo-help-options{
 }
 
 // Result Page
