@@ -67,34 +67,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.mefo-login-page{
-  height: 100vh;
-}
-
-.mefo-login-logo{
-  display: flex;
-  justify-content: center;
-}
-
-.mefo-login-form{
-  margin: 1rem;
-}
-
-.mefo-login-input{
-  margin-bottom: .75rem;
-}
-
-.mefo-login-button{
-  display: flex;
-  justify-content: center;
-  margin-bottom: .75rem;
-}
-.mefo-login-lang-change{
-  display: flex;
-  justify-content: center;
-  margin-bottom: .75rem;
-}
-
-</style>

@@ -154,24 +154,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.mefo-results-page h4{
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-}
-
-.mefo-results{
-  margin-bottom: 5rem;
-}
-
-.mefo-overlap{
-  z-index: 2147483646;
-
-  q-btn{
-    z-index: 2147483647;
-  }
-}
-
-</style>

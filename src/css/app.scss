@@ -137,7 +137,8 @@ p{
 
 // Quiz Card
 .mefo-quiz-card{
-  margin: .75rem;
+  margin: 10px;
+  border-radius: 0;
 }
 
 .mefo-quiz-select{
@@ -151,6 +152,25 @@ p{
 
 .mefo-quiz-name{
   text-transform: uppercase;
+}
+
+// Result Page
+.mefo-results-page h4{
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mefo-results{
+  margin-bottom: 5rem;
+}
+
+.mefo-overlap{
+  z-index: 2147483646;
+
+  q-btn{
+    z-index: 2147483647;
+  }
 }
 
 
@@ -188,4 +208,33 @@ p{
   border-radius: 0;
   border-left: 15px solid;
   border-left-color: $answerWrong;
+}
+
+// Login
+.mefo-login-page{
+  height: 100vh;
+}
+
+.mefo-login-logo{
+  display: flex;
+  justify-content: center;
+}
+
+.mefo-login-form{
+  margin: 1rem;
+}
+
+.mefo-login-input{
+  margin-bottom: .75rem;
+}
+
+.mefo-login-button{
+  display: flex;
+  justify-content: center;
+  margin-bottom: .75rem;
+}
+.mefo-login-lang-change{
+  display: flex;
+  justify-content: center;
+  margin-bottom: .75rem;
 }
