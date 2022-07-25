@@ -7,7 +7,7 @@
       class=""
     >
     <div class="gt-sm quiz-wrapper">
-      <quizCard
+      <QuizCard
         v-for="quiz in availableQuizzes"
         :key="quiz.id"
         v-bind="quiz"
@@ -16,7 +16,7 @@
       />
     </div>
       <div class="lt-md">
-      <quizCard
+      <QuizCard
         v-for="quiz in availableQuizzes"
         :key="quiz.id"
         v-bind="quiz"
@@ -32,13 +32,13 @@
 import { defineComponent, ref } from 'vue';
 import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
 import { db, auth } from "src/boot/firebase";
-import quizCard from "components/quizCard";
+import QuizCard from "components/QuizCard";
 
 export default defineComponent({
   name: 'PageIndex',
 
   components: {
-    quizCard
+    QuizCard
   },
 
   data() {

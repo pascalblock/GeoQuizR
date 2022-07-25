@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: "quizCard",
+  name: "QuizCard",
 
   props: {
     name: {

@@ -15,10 +15,10 @@
         <l-geo-json :geojson="geojson"></l-geo-json>
       </l-map>
     </div>
-    <q-page-sticky position="bottom-left" :offset="[18, 70]">
-      <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}"/>
+    <q-page-sticky position="bottom-left" :offset="[12, 70]">
+      <q-btn round color="primary" icon="meeting_room" :to="{ name: 'QuizStart'}"/>
     </q-page-sticky>
-    <q-page-sticky position="bottom-right" :offset="[18, 70]">
+    <q-page-sticky position="bottom-right" :offset="[12, 70]">
       <q-btn round color="primary" @click="titleSound($t('Language.key'))" icon="record_voice_over"/>
     </q-page-sticky>
     <helpOptions
