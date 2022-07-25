@@ -18,6 +18,9 @@
     <q-page-sticky position="bottom-left" :offset="[18, 70]">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}"/>
     </q-page-sticky>
+    <q-page-sticky position="bottom-right" :offset="[18, 70]">
+      <q-btn round color="primary" @click="titleSound($t('Language.key'))" icon="record_voice_over"/>
+    </q-page-sticky>
     <helpOptions
       @layer-Switch="getRandomMap()"
     />
@@ -38,6 +41,7 @@ import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, qu
 import { db, auth } from "src/boot/firebase";
 import "leaflet/dist/leaflet.css"
 import { LMap, LGeoJson, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
+import {ScreenReader} from "@capacitor/screen-reader";
 
 export default {
   name: "QuizFrame",
@@ -153,6 +157,9 @@ export default {
         this.getRandomMap()
         this.$q.loading.hide()
       }
+    },
+    async titleSound(languageKey){
+      await ScreenReader.speak({value: this.$store.state.actualQuestion.name, language: languageKey});
     },
 
     /**

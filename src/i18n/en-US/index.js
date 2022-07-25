@@ -32,7 +32,7 @@ export default {
     },
 
     helpOptions: {
-      speech: 'Speech',
+      speech: 'Hint',
       layer: 'Layer'
     },
 
