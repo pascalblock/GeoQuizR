@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pl-lg q-pr-lg mefo-page-header">
+  <div class="mefo-page-header">
     <h1 class="headlineSection">{{headlineTitle}}</h1>
   </div>
 </template>

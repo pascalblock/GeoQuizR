@@ -2,7 +2,7 @@
   <q-card class="mefo-result-card row" :class="resultRating">
     <div class="col">
       <q-card-section>
-        <p class="text-h6 mefo-quiz-name">
+        <p class="mefo-quiz-result-name">
           {{ name }}
         </p>
         <p><b>{{ $t('resultPage.card.result1') }} {{Math.round(distance)}} {{ $t('resultPage.card.result2') }}</b></p>

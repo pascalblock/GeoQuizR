@@ -2,7 +2,7 @@
   <q-page class="mefo-results-page">
     <page-header :headline-title="$t('resultPage.headline') "/>
     <div>
-      <p style="text-align: center" class="text-h6"><b>{{ $t('resultPage.statistics') }}</b></p>
+      <p style="text-align: center"><b>{{ $t('resultPage.statistics') }}</b></p>
       <div class="row" style="display: flex; justify-content: space-around">
         <div>
           <q-circular-progress

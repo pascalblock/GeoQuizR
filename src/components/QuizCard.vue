@@ -1,7 +1,7 @@
 <template>
   <q-card class="mefo-quiz-card">
-    <q-img :ratio="16/9" style="max-height: 500px" src="../assets/quizImages/Maps.jpg" />
-    <q-card-section>
+    <q-img :ratio="16/9" style="max-height: 500px" src="../assets/quizImages/city.jpg" />
+    <q-card-section style="height: 150px; padding: 12px">
       <q-btn
         fab
         color="primary"
@@ -9,7 +9,6 @@
         class="absolute"
         style="top: 0; right: 12px; transform: translateY(-50%);"
       />
-
       <div class="row no-wrap items-center">
         <p class="col ellipsis mefo-quiz-name">
           {{ name }}

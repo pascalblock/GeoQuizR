@@ -47,16 +47,6 @@ p{
   font-family: "Eras Demi ITC", sans-serif;
 }
 
-// Sections
-.headlineSection {
-  font-size: xx-large;
-  margin: unset;
-  line-height: 4rem;
-}
-.bottomSection {
-  border-top: 2px solid;
-  border-top-color: $primary;
-}
 // Fonts
 .nexa-font{
   font-family: 'Nexa Rust Sans', sans-serif;
@@ -90,6 +80,20 @@ p{
 }
 
 // Pages
+.headlineSection {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 12px;
+  font-size: 20px;
+  height: 60px;
+  line-height: unset;
+  align-items: center;
+  display: flex;
+}
+.bottomSection {
+  border-top: 2px solid;
+  border-top-color: $primary;
+}
 .mefo-page-header{
   border-bottom: 2px solid;
   border-bottom-color: $primary;
@@ -106,6 +110,10 @@ p{
   justify-content: center;
   align-items: center;
   border-radius: 0;
+}
+
+.mefo-page-text{
+  margin: 12px;
 }
 
 // Quiz Card
@@ -126,6 +134,7 @@ p{
 .mefo-quiz-name{
   font-family: "Nexa Rust Sans", sans-serif;
   font-size: 20px;
+  color: $primary;
 }
 
 // Quiz Start
@@ -214,6 +223,12 @@ p{
 }
 
 // Result Card
+.mefo-quiz-result-name{
+  font-family: "Eras Demi ITC", sans-serif;
+  font-size: 15px;
+  color: $primary;
+}
+
 .mefo-result-card{
   margin: .75rem;
 

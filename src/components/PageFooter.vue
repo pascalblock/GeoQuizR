@@ -1,5 +1,5 @@
 <template>
-  <div class="mefo-page-footer row q-pl-lg q-pr-lg">
+  <div class="mefo-page-footer row">
     <q-btn class="primaryButton relative-position" :label="footerButtonLabel" :to="targetDestination" unelevated no-caps/>
   </div>
 </template>

@@ -2,7 +2,7 @@
   <q-page>
     <div class="text-left">
       <pageHeader :headline-title="$t('Imprint.headline') "/>
-      <div class="q-pa-lg q-ma-none">
+      <div class="mefo-page-text">
         <p class="gt-sm multiColums-2">{{ $t('Imprint.text')}}</p>
         <p class="lt-md">{{ $t('Imprint.text')}}</p>
       </div>
