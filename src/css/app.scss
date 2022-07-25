@@ -1,10 +1,22 @@
 // app global css in SCSS form
 
 // Default elements
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3{
   font-family: 'Eras Demi ITC', sans-serif;
   color: $secondary;
 }
+h1{
+  font-size: 30px;
+  font-family: "Nexa Rust Sans", sans-serif;
+}
+h2{
+  font-size: 20px;
+  font-family: "Eras Demi ITC", sans-serif;
+}
+h3{
+  font-size: 15px;
+}
+
 p{
   font-family: "Eras Medium ITC", sans-serif;
   font-size: 15px;
@@ -287,8 +299,22 @@ p{
   justify-content: center;
   margin-bottom: .75rem;
 }
+
 .mefo-login-lang-change{
   display: flex;
   justify-content: center;
   margin-bottom: .75rem;
 }
+
+// Error pages
+.mefo-error{
+ color: white;
+}
+.mefo-error-code{
+  font-size: 50px;
+}
+.mefo-error-text{
+  font-size: 30px;
+}
+
+

@@ -1,13 +1,12 @@
 <template>
   <div class="fullscreen bg-secondary text-white text-center q-pa-md flex flex-center">
     <div>
-      <h1 class="text-white nexa-font">
+      <h1 class="mefo-error mefo-error-code">
         {{ $t('Error.error_404.code') }}
       </h1>
-      <h2 class="text-white eras-font">
+      <h2 class="mefo-error mefo-error-text">
         {{ $t('Error.error_404.message') }}
       </h2>
-
       <q-btn
         class="invertedButton"
         unelevated
