@@ -4,7 +4,6 @@
     <div class="relative-position text-center">
       <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-<!--        <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"-->
         <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"
                   :visible="marker.visible">
           <l-icon
