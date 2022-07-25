@@ -11,24 +11,19 @@
       />
 
       <div class="row no-wrap items-center">
-        <h6 class="col ellipsis mefo-quiz-name">
+        <p class="col ellipsis mefo-quiz-name">
           {{ name }}
-        </h6>
-        <div class="col-auto text-grey text-caption q-pt-md q-mr-sm row no-wrap items-center">
+        </p>
+        <div class="col-auto text-grey q-pt-md q-mr-sm row no-wrap items-center">
           <q-icon name="groups" class="q-mr-xs q-mb-md" />
           <p>{{ player }}</p>
         </div>
       </div>
-
-      <q-rating color="accent" :v-model="stars" :max="5" size="32px"  model-value=""/>
-    </q-card-section>
-
-    <q-card-section class="q-pt-none">
-      <p class="text-subtitle1">
+      <p>
         {{ description }}
       </p>
+      <q-rating color="accent" :v-model="stars" :max="5" size="32px"  model-value=""/>
     </q-card-section>
-
     <q-card-actions class="mefo-quiz-select">
       <q-btn class="primaryButton" style="width: 180px;" @click="selectQuizHandler" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
     </q-card-actions>
