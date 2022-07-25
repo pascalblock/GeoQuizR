@@ -13,7 +13,6 @@
         to="/"
         :label="$t('Buttons.home.label')"
         no-caps
-        size="lg"
       />
     </div>
   </div>

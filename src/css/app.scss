@@ -156,12 +156,12 @@ p{
 .mefo-start-quiz::after{
   content: '';
   position: absolute;
-  background-image: url("../assets/quizImages/Maps.jpg");
+  background-image: url("../assets/quizImages/city.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
-  opacity: 0.6;
+  opacity: 0.2;
   width: 100%;
   height: 100%;
 }
