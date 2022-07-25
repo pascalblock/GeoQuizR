@@ -10,7 +10,3 @@ export default {
   name: "PageHeader"
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

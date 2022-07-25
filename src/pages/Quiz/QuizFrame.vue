@@ -15,7 +15,7 @@
         <l-geo-json :geojson="geojson"></l-geo-json>
       </l-map>
     </div>
-    <q-page-sticky position="bottom-left" :offset="[18, 56]">
+    <q-page-sticky position="bottom-left" :offset="[18, 70]">
       <q-btn round color="primary" icon="arrow_back" :to="{ name: 'QuizStart'}"/>
     </q-page-sticky>
     <helpOptions
@@ -298,7 +298,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -6,13 +6,11 @@
      -->
     </div>
     <div class="col-6 mefo-next-quest">
-      <q-btn class="eras-font-demi"
-             @click="
+      <q-btn class="primaryButton" @click="
              incStepCounterHandler();
              nextQuestionHandler();
              saveAnswerHandler();
              calcDistanceHandler()"
-             color="primary"
              unelevated
              no-caps
              :disable="this.$store.state.initialMarkerLatLangBool"
@@ -52,7 +50,7 @@ export default {
 
 .mefo-quiz-footer{
   border-top: solid 2px $primary;
-  height: 3rem;
+  height: 60px;
   position: absolute;
   bottom: 0;
   width: 100%;

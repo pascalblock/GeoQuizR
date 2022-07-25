@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 
 .mefo-quiz-header{
-  height: 3rem;
+  height: 60px;
   text-align: center;
   align-items: center;
   border-bottom: solid 2px $primary;

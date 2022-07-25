@@ -30,7 +30,7 @@
     </q-card-section>
 
     <q-card-actions class="mefo-quiz-select">
-      <q-btn class="eras-font-demi" style="width: 180px;" @click="selectQuizHandler" color="primary" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
+      <q-btn class="primaryButton" style="width: 180px;" @click="selectQuizHandler" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
     </q-card-actions>
   </q-card>
 </template>
