@@ -7,7 +7,7 @@
     <div class="items-center">
       <p><b>{{ this.$store.state.actualQuestion.name }}</b></p>
     </div>
-    <q-btn class="q-ml-lg" color="primary" @click="titleSound($t('Language.key'))" icon="record_voice_over"/>
+    <q-btn class="primaryButton-sm q-ml-lg" @click="titleSound($t('Language.key'))" icon="record_voice_over"/>
   </div>
 </template>
 

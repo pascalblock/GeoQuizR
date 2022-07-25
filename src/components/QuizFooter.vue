@@ -1,24 +1,17 @@
 <template>
-  <div class="mefo-quiz-footer row">
-    <div class="col-6 mefo-prev-quest">
-      <!--
-      <q-btn class="eras-font-demi" @click="prevQuestionHandler" :label="$t('quizFrame.footer.prev')" color="primary" unelevated no-caps v-if="$store.state.finishedQuestions.length >0" />
-     -->
-    </div>
-    <div class="col-6 mefo-next-quest">
-      <q-btn class="primaryButton" @click="
+  <div class="mefo-page-footer row q-pl-lg q-pr-lg">
+    <q-btn class="primaryButton" @click="
              incStepCounterHandler();
              nextQuestionHandler();
              saveAnswerHandler();
              calcDistanceHandler()"
-             unelevated
-             no-caps
-             :disable="this.$store.state.initialMarkerLatLangBool"
-             :loading="this.$store.state.initialMarkerLatLangBool && this.$store.state.stepCounter > 1"
-      >
-        {{ this.$store.state.stepCounter === this.$store.state.selectedQuiz.randomQuestions.length ? $t('quizFrame.footer.last') : $t('quizFrame.footer.next') }}
-      </q-btn>
-    </div>
+           unelevated
+           no-caps
+           :disable="this.$store.state.initialMarkerLatLangBool"
+           :loading="this.$store.state.initialMarkerLatLangBool && this.$store.state.stepCounter > 1"
+    >
+      {{ this.$store.state.stepCounter === this.$store.state.selectedQuiz.randomQuestions.length ? $t('quizFrame.footer.last') : $t('quizFrame.footer.next') }}
+    </q-btn>
   </div>
 </template>
 

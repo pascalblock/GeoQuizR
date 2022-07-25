@@ -14,12 +14,23 @@ p{
 .primaryButton {
   border-radius: 0;
   width: 180px;
+  height: 40px;
+  background-color: $primary;
+  color: white;
+  font-family: "Eras Demi ITC", sans-serif;
+}
+
+.primaryButton-sm {
+  border-radius: 0;
+  width: 40px;
+  height: 40px;
   background-color: $primary;
   color: white;
   font-family: "Eras Demi ITC", sans-serif;
 }
 
 .secondaryButton {
+  height: 40px;
   background-color: $primary;
   color: white;
   font-family: "Eras Demi ITC", sans-serif;
@@ -28,6 +39,7 @@ p{
 .invertedButton {
   border-radius: 0;
   width: 180px;
+  height: 40px;
   background: white;
   color: $secondary;
   font-family: "Eras Demi ITC", sans-serif;
@@ -122,41 +134,7 @@ p{
   margin-bottom: unset;
 }
 
-
-// Quiz Footer
-.mefo-quiz-footer{
-  border-top: solid 2px $primary;
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  align-items: center;
-  background-color: white;
-
-  .mefo-next-quest{
-    display: flex;
-    justify-content: flex-end;
-
-    .q-btn{
-      margin-right: 1rem;
-    }
-  }
-
-  .mefo-prev-quest{
-    display: flex;
-    justify-content: flex-start;
-
-    .q-btn{
-      margin-left: 1rem;
-    }
-  }
-
-  q-btn{
-    height: 2rem;
-  }
-}
-
-// Quiz Footer
+// Quiz Header
 .mefo-quiz-header{
   height: 60px;
   text-align: center;
