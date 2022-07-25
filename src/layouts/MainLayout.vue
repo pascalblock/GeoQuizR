@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-toolbar-title class="nexa-font">
+        <q-toolbar-title>
           <router-link to="/" @click="resetQuizSelection" class="titleRouter">GeoQuizR</router-link>
         </q-toolbar-title>
 
