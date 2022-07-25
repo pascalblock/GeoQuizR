@@ -25,6 +25,14 @@ p{
   font-family: "Eras Demi ITC", sans-serif;
 }
 
+.invertedButton {
+  border-radius: 0;
+  width: 180px;
+  background: white;
+  color: $secondary;
+  font-family: "Eras Demi ITC", sans-serif;
+}
+
 // Sections
 .headlineSection {
   font-size: xx-large;
@@ -65,14 +73,16 @@ p{
   grid-template-columns: repeat(2, 1fr);
 }
 
-// Quiz
+// Pages
 .mefo-page-header{
   border-bottom: 2px solid;
   border-bottom-color: $primary;
+  background-color: white;
 }
 
 .mefo-page-footer{
   border-top: solid 2px $primary;
+  background-color: white;
   height: 60px;
   position: absolute;
   bottom: 0;
@@ -81,6 +91,37 @@ p{
   align-items: center;
   border-radius: 0;
 }
+
+// Quiz Start
+.mefo-start-quiz{
+  display: flex;
+}
+.mefo-start-quiz::after{
+  content: '';
+  position: absolute;
+  background-image: url("../assets/quizImages/Maps.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+}
+.mefo-quiz-title{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+  text-align: center;
+}
+
+.mefo-start-quiz-name{
+  color: $primary;
+  font-size: 3rem;
+  margin-bottom: unset;
+}
+
 
 // Quiz Footer
 .mefo-quiz-footer{
@@ -172,7 +213,6 @@ p{
     z-index: 2147483647;
   }
 }
-
 
 // Result Card
 .mefo-result-card{

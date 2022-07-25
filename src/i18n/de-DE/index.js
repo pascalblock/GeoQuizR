@@ -114,7 +114,7 @@ export default {
   },
   Buttons: {
     home: {
-      label: 'zurück zur Startseite',
+      label: 'zur Startseite',
     },
     send: {
       label: 'absenden',

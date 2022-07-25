@@ -9,7 +9,7 @@
       </h2>
 
       <q-btn
-        class="q-mt-xl text-secondary bg-white"
+        class="invertedButton"
         unelevated
         to="/"
         :label="$t('Buttons.home.label')"
