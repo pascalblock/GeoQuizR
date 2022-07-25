@@ -37,8 +37,8 @@
 import quizHeader from "components/QuizHeader";
 import quizFooter from "components/QuizFooter";
 import helpOptions from "components/HelpOptions";
-import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
-import { db, auth } from "src/boot/firebase";
+import { collection, getDocs, query} from "firebase/firestore";
+import { db } from "src/boot/firebase";
 import "leaflet/dist/leaflet.css"
 import { LMap, LGeoJson, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 import {ScreenReader} from "@capacitor/screen-reader";

@@ -80,6 +80,7 @@ p{
 .titleRouter{
   text-decoration: none;
   color: white;
+  font-size: 20px;
 }
 
 .quiz-wrapper{
@@ -108,7 +109,7 @@ p{
 
 // Quiz Card
 .mefo-quiz-card{
-  margin: 10px;
+  margin: 12px;
   border-radius: 0;
 }
 
@@ -143,16 +144,17 @@ p{
 }
 .mefo-quiz-title{
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 50%;
-  transform: translate(-50%,-40%);
+  transform: translate(-50%,-30%);
   text-align: center;
 }
 
 .mefo-start-quiz-name{
   color: $primary;
-  font-size: 3rem;
-  margin-bottom: unset;
+  font-size: 40px;
+  margin-bottom: 12px;
+  line-height: unset;
 }
 
 // Quiz Header
