@@ -45,39 +45,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-.mefo-quiz-footer{
-  border-top: solid 2px $primary;
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  align-items: center;
-  background-color: white;
-
-  .mefo-next-quest{
-    display: flex;
-    justify-content: flex-end;
-
-    .q-btn{
-      margin-right: 1rem;
-    }
-  }
-
-  .mefo-prev-quest{
-    display: flex;
-    justify-content: flex-start;
-
-    .q-btn{
-      margin-left: 1rem;
-    }
-  }
-
-  q-btn{
-    height: 2rem;
-  }
-}
-
-</style>

@@ -28,26 +28,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-.mefo-quiz-header{
-  height: 60px;
-  text-align: center;
-  align-items: center;
-  border-bottom: solid 2px $primary;
-
-  p {
-    margin-bottom: 0;
-  }
-}
-
-.mefo-quiz-count{
-  padding-left: 1rem;
-
-  :first-child{
-    margin-right: .2rem;
-  }
-}
-
-</style>

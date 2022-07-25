@@ -1,1 +1,191 @@
 // app global css in SCSS form
+
+// Default elements
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Eras Demi ITC', sans-serif;
+  color: $secondary;
+}
+p{
+  font-family: "Eras Medium ITC", sans-serif;
+  color: $secondary;
+}
+
+// Buttons
+.primaryButton {
+  border-radius: 0;
+  width: 180px;
+  background-color: $primary;
+  color: white;
+  font-family: "Eras Demi ITC", sans-serif;
+}
+
+.secondaryButton {
+  background-color: $primary;
+  color: white;
+  font-family: "Eras Demi ITC", sans-serif;
+}
+
+// Sections
+.headlineSection {
+  font-size: xx-large;
+  margin: unset;
+  line-height: 4rem;
+}
+.bottomSection {
+  border-top: 2px solid;
+  border-top-color: $primary;
+}
+// Fonts
+.nexa-font{
+  font-family: 'Nexa Rust Sans', sans-serif;
+}
+
+.eras-font{
+  font-family: 'Eras Medium ITC', sans-serif;
+}
+.eras-font-demi{
+  font-family: 'Eras Demi ITC', sans-serif;
+}
+
+
+.multiColums-2{
+  column-count: 2;
+}
+
+.multiColums-3{
+  column-count: 3;
+}
+.titleRouter{
+  text-decoration: none;
+  color: white;
+}
+
+.quiz-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+// Quiz
+.mefo-page-header{
+  border-bottom: 2px solid;
+  border-bottom-color: $primary;
+}
+
+.mefo-page-footer{
+  border-top: solid 2px $primary;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+}
+
+// Quiz Footer
+.mefo-quiz-footer{
+  border-top: solid 2px $primary;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+  background-color: white;
+
+  .mefo-next-quest{
+    display: flex;
+    justify-content: flex-end;
+
+    .q-btn{
+      margin-right: 1rem;
+    }
+  }
+
+  .mefo-prev-quest{
+    display: flex;
+    justify-content: flex-start;
+
+    .q-btn{
+      margin-left: 1rem;
+    }
+  }
+
+  q-btn{
+    height: 2rem;
+  }
+}
+
+// Quiz Footer
+.mefo-quiz-header{
+  height: 60px;
+  text-align: center;
+  align-items: center;
+  border-bottom: solid 2px $primary;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.mefo-quiz-count{
+  padding-left: 1rem;
+
+  :first-child{
+    margin-right: .2rem;
+  }
+}
+
+// Quiz Card
+.mefo-quiz-card{
+  margin: .75rem;
+}
+
+.mefo-quiz-select{
+  display: flex;
+  justify-content: center;
+
+  .q-btn {
+    width: 60%;
+  }
+}
+
+.mefo-quiz-name{
+  text-transform: uppercase;
+}
+
+
+// Result Card
+.mefo-result-card{
+  margin: .75rem;
+
+  .q-card__section{
+    padding-bottom: 0;
+  }
+
+  .q-icon{
+    color: $dark;
+  }
+}
+.map{
+  width: 50%;
+  height: 100%;
+}
+
+// Feedback
+.close{
+  border-radius: 0;
+  border-left: 15px solid;
+  border-left-color: $answerGood;
+}
+
+.furtherAway{
+  border-radius: 0;
+  border-left: 15px solid;
+  border-left-color: $answerOK;
+}
+
+.farAway{
+  border-radius: 0;
+  border-left: 15px solid;
+  border-left-color: $answerWrong;
+}

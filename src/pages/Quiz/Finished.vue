@@ -62,7 +62,7 @@
       />
     </div>
     <q-page-sticky position="bottom" class="mefo-overlap" :offset="[0, 18]">
-      <q-btn color="primary" no-caps @click="increasePlayerCounter() ;resetAllResults()" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
+      <q-btn class="primaryButton" no-caps @click="increasePlayerCounter() ;resetAllResults()" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
     </q-page-sticky>
   </q-page>
 </template>

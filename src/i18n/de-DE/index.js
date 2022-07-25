@@ -49,7 +49,7 @@ export default {
   resultPage: {
     headline: 'Deine Ergebnisse',
     statistics: 'Auswertung',
-    goToHome: 'Zurück zur Quiz-Übersicht',
+    goToHome: 'Zur Quiz-Übersicht',
 
     noPolyLine: 'Es konnte leider keine Linie zwischen deiner Antwort und der richtigen Antwort gezogen werden.',
 

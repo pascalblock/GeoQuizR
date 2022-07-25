@@ -70,22 +70,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.mefo-quiz-card{
-  margin: .75rem;
-}
-
-.mefo-quiz-select{
-  display: flex;
-  justify-content: center;
-
-  .q-btn {
-    width: 60%;
-  }
-}
-
-.mefo-quiz-name{
-  text-transform: uppercase;
-}
-</style>
