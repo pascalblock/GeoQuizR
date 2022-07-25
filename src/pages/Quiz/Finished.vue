@@ -1,9 +1,6 @@
 <template>
   <q-page class="mefo-results-page">
-    <h4>
-      {{ $t('resultPage.headline') }}
-    </h4>
-
+    <page-header :headline-title="$t('resultPage.headline') "/>
     <div>
       <p style="text-align: center" class="text-h6"><b>{{ $t('resultPage.statistics') }}</b></p>
       <div class="row" style="display: flex; justify-content: space-around">
@@ -64,7 +61,6 @@
         v-bind="answer"
       />
     </div>
-
     <q-page-sticky position="bottom" class="mefo-overlap" :offset="[0, 18]">
       <q-btn color="primary" no-caps @click="increasePlayerCounter() ;resetAllResults()" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
     </q-page-sticky>
@@ -75,12 +71,14 @@
 import ResultCard from "components/ResultCard";
 import {db} from "boot/firebase";
 import {doc, updateDoc, increment } from "firebase/firestore";
+import pageHeader from "components/PageHeader";
 
 export default {
   name: "Finished",
 
   components: {
-    ResultCard
+    ResultCard,
+    pageHeader,
   },
 
   data(){
