@@ -99,7 +99,7 @@ export default {
     intro: 'You can change your settings here.',
   },
   Language: {
-    title: 'language',
+    title: 'Language',
     de: 'German',
     en: 'English',
     key: 'en',

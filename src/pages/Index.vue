@@ -33,6 +33,7 @@ import { defineComponent, ref } from 'vue';
 import { collection, onSnapshot, doc, deleteDoc, updateDoc, getDocs, orderBy, query, addDoc, where } from "firebase/firestore";
 import { db, auth } from "src/boot/firebase";
 import QuizCard from "components/QuizCard";
+import {useI18n} from "vue-i18n";
 
 export default defineComponent({
   name: 'PageIndex',
@@ -43,13 +44,28 @@ export default defineComponent({
 
   data() {
     return {
-      availableQuizzes: [],
+      availableQuizzes: []
     }
   },
 
   created() {
     this.getQuiz()
   },
+
+  setup(){
+    const { locale } = useI18n({ useScope: 'global' })
+
+    return{
+      locale
+    }
+  },
+
+  watch: {
+    locale(newValue){
+      this.getQuiz()
+    }
+  },
+
 
   methods: {
     async getQuiz(){
