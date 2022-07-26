@@ -10,18 +10,18 @@
         style="top: 0; right: 12px; transform: translateY(-50%);"
       />
       <div class="row no-wrap items-center">
-        <p class="col ellipsis mefo-quiz-name">
+        <h2 class="mefo-quiz-name">
           {{ name }}
-        </p>
+        </h2>
       </div>
-      <p>
+      <p class="mefo-quiz-description">
         {{ description }}
       </p>
       <div class="row justify-between">
         <q-rating color="accent" :v-model="stars" :max="5" size="32px"  model-value=""/>
-        <div class="text-grey q-pt-md q-mr-sm row no-wrap items-center">
-          <q-icon style="font-size: 24px" color="accent" name="groups" class="q-mr-xs q-mb-md" />
-          <p>{{ player }}</p>
+        <div class="text-grey row no-wrap items-center">
+          <q-icon name="groups" class="mefo-quiz-card-visitors" />
+          <p class="mefo-quiz-card-count">{{ player }}</p>
         </div>
       </div>
     </q-card-section>
