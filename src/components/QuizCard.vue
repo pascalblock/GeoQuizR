@@ -13,15 +13,17 @@
         <p class="col ellipsis mefo-quiz-name">
           {{ name }}
         </p>
-        <div class="col-auto text-grey q-pt-md q-mr-sm row no-wrap items-center">
-          <q-icon name="groups" class="q-mr-xs q-mb-md" />
-          <p>{{ player }}</p>
-        </div>
       </div>
       <p>
         {{ description }}
       </p>
-      <q-rating color="accent" :v-model="stars" :max="5" size="32px"  model-value=""/>
+      <div class="row justify-between">
+        <q-rating color="accent" :v-model="stars" :max="5" size="32px"  model-value=""/>
+        <div class="text-grey q-pt-md q-mr-sm row no-wrap items-center">
+          <q-icon style="font-size: 24px" color="accent" name="groups" class="q-mr-xs q-mb-md" />
+          <p>{{ player }}</p>
+        </div>
+      </div>
     </q-card-section>
     <q-card-actions class="mefo-quiz-select">
       <q-btn class="primaryButton" style="width: 180px;" @click="selectQuizHandler" :label="$t('quizCard.select')" no-caps :to="{name: 'QuizStart'}"/>
