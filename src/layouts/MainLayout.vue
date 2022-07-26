@@ -24,8 +24,8 @@
       bordered
       class="bg-grey-1 eras-font"
     >
-      <q-list>
-        <q-item clickable tag="a" :to="{ name: 'Faq' }">
+      <q-list class="mefo-menu-list">
+        <q-item class="mefo-menu-item" clickable tag="a" :to="{ name: 'Faq' }">
           <q-item-section avatar>
             <q-icon name="quiz" />
           </q-item-section>
@@ -33,15 +33,15 @@
             <q-item-label>{{ this.$t('sideBar.faq') }}</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" :to="{ name: 'Contact' }">
+        <q-item class="mefo-menu-item" clickable tag="a" :to="{ name: 'Contact' }">
           <q-item-section avatar>
-            <q-icon name="contact_mail" />
+            <q-icon color="$accent" name="contact_mail" />
           </q-item-section>
           <q-item-section>
             <q-item-label>{{ this.$t('sideBar.contact') }}</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" :to="{ name: 'Imprint' }">
+        <q-item class="mefo-menu-item" clickable tag="a" :to="{ name: 'Imprint' }">
           <q-item-section avatar>
             <q-icon name="policy" />
           </q-item-section>
@@ -49,7 +49,7 @@
             <q-item-label>{{ this.$t('sideBar.imprint') }}</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable tag="a" :to="{ name: 'Settings' }">
+        <q-item class="mefo-menu-item" clickable tag="a" :to="{ name: 'Settings' }">
           <q-item-section avatar>
             <q-icon name="settings" />
           </q-item-section>
@@ -57,8 +57,6 @@
             <q-item-label>{{ this.$t('sideBar.config') }}</q-item-label>
           </q-item-section>
         </q-item>
-
-
         <q-select
           v-model="locale"
           :options="localeOptions"
@@ -68,8 +66,8 @@
           emit-value
           map-options
           options-dense
-          class="q-pl-md q-pt-sm q-pb-sm q-pr-md eras-font"
-          style="width: 100%"
+          class="mefo-language-selection"
+          style="width: 100%; font-size: 15px"
         />
       </q-list>
     </q-drawer>

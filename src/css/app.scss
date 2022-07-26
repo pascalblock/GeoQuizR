@@ -91,6 +91,24 @@ p{
   grid-template-columns: repeat(2, 1fr);
 }
 
+// Menu
+.mefo-language-selection{
+  margin-left: 12px;
+  margin-right: 12px;
+  font-family: "Eras Medium ITC", sans-serif;
+  color: $secondary;
+}
+
+.mefo-menu-list{
+}
+
+.mefo-menu-item{
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 0;
+  color: $secondary;
+}
+
 // Pages
 .headlineSection {
   margin-top: 0;
