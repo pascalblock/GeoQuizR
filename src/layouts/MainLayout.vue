@@ -22,7 +22,7 @@
       v-model="rightDrawerOpen"
       show-if-above
       bordered
-      class="bg-grey-1 eras-font"
+      class="eras-font"
     >
       <q-list class="mefo-menu-list">
         <q-item class="mefo-menu-item" clickable tag="a" :to="{ name: 'Faq' }">
@@ -66,9 +66,7 @@
           emit-value
           map-options
           options-dense
-          class="mefo-language-selection"
-          style="width: 100%; font-size: 15px"
-        />
+          class="mefo-language-selection"/>
       </q-list>
     </q-drawer>
 
