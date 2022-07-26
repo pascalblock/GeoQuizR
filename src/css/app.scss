@@ -25,7 +25,7 @@ p{
 
 // Buttons
 .primaryButton {
-  border-radius: 0;
+  border-radius: 4px;
   width: 180px;
   height: 40px;
   background-color: $primary;
@@ -51,7 +51,7 @@ p{
 }
 
 .invertedButton {
-  border-radius: 0;
+  border-radius: 4px;
   width: 180px;
   height: 40px;
   background: white;
@@ -150,7 +150,7 @@ p{
 // Quiz Card
 .mefo-quiz-card{
   margin: 12px;
-  border-radius: 0;
+  border-radius: 4px;
 }
 
 .mefo-quiz-description{
@@ -295,19 +295,19 @@ p{
 
 // Feedback
 .close{
-  border-radius: 0;
+  border-radius: 4px;
   border-left: 15px solid;
   border-left-color: $answerGood;
 }
 
 .furtherAway{
-  border-radius: 0;
+  border-radius: 4px;
   border-left: 15px solid;
   border-left-color: $answerOK;
 }
 
 .farAway{
-  border-radius: 0;
+  border-radius: 4px;
   border-left: 15px solid;
   border-left-color: $answerWrong;
 }

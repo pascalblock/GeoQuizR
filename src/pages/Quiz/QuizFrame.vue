@@ -111,8 +111,8 @@ export default {
     showInitialInfo(){
       this.$q.notify({
         message: this.$t('quizFrame.informationNotify.message'),
-        color: 'secondary',
-        position: 'top',
+        color: 'primary',
+        position: 'center',
         progress: true,
         actions: [
           { iconRight: 'close', color: 'white' }
