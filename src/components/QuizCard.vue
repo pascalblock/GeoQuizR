@@ -8,6 +8,8 @@
         :icon="icon"
         class="absolute"
         style="top: 0; right: 12px; transform: translateY(-50%);"
+        @click="selectQuizHandler"
+        :to="{name: 'QuizStart'}"
       />
       <div class="row no-wrap items-center">
         <h2 class="mefo-quiz-name">
