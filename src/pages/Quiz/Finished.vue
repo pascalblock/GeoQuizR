@@ -8,7 +8,7 @@
         <div>
           <q-circular-progress
             show-value
-            font-size="16px"
+            font-size="20px"
             class="text-green"
             :value="closePercent"
             size="60px"
@@ -24,7 +24,7 @@
         <div>
           <q-circular-progress
             show-value
-            font-size="16px"
+            font-size="20px"
             class="text-orange"
             :value="furtherPercent"
             size="60px"
@@ -40,7 +40,7 @@
         <div>
           <q-circular-progress
             show-value
-            font-size="16px"
+            font-size="20px"
             class="text-red"
             :value="farPercent"
             size="60px"
