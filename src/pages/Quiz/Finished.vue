@@ -2,7 +2,7 @@
   <q-page class="mefo-results-page">
     <page-header :headline-title="$t('resultPage.headline') "/>
     <div>
-      <p style="text-align: center"><b>{{ $t('resultPage.statistics') }}</b></p>
+      <h2 style="text-align: center;"><b>{{ $t('resultPage.statistics') }}</b></h2>
       <div class="row" style="display: flex; justify-content: space-around">
         <div>
           <q-circular-progress
@@ -61,7 +61,7 @@
         v-bind="answer"
       />
     </div>
-    <q-page-sticky position="bottom" class="mefo-overlap" :offset="[0, 18]">
+    <q-page-sticky position="bottom" class="mefo-overlap">
       <q-btn class="primaryButton" no-caps @click="increasePlayerCounter() ;resetAllResults()" :to="{name: 'home'}" :label="$t('resultPage.goToHome')" />
     </q-page-sticky>
   </q-page>

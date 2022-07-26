@@ -254,18 +254,21 @@ p{
 
 // Result Page
 .mefo-results-page h4{
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-bottom: 12px;
 }
 
 .mefo-results{
-  margin-bottom: 5rem;
+  margin-bottom: 70px;
+  justify-content: space-between;
 }
 
 .mefo-overlap{
   z-index: 2147483646;
-
+  background-color: white;
+  height: 60px;
+  border-top: 2px solid $primary;
   q-btn{
     z-index: 2147483647;
   }
