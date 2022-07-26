@@ -3,7 +3,8 @@
     <page-header :headline-title="$t('resultPage.headline') "/>
     <div>
       <h2 style="text-align: center;"><b>{{ $t('resultPage.statistics') }}</b></h2>
-      <div class="row" style="display: flex; justify-content: space-around">
+      <div class="row" style="display: flex; justify-content: space-around; margin-left: auto; margin-right: auto; max-width: 1200px;
+">
         <div>
           <q-circular-progress
             show-value
