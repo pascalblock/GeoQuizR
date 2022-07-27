@@ -2,7 +2,7 @@
   <q-page>
     <div class="text-left">
       <pageHeader :headline-title="$t('Contact.headline') "/>
-      <div class="q-pa-lg q-ma-none">
+      <div class="mefo-page-text">
         <p>{{ $t('Contact.intro')}}</p>
       </div>
     </div>
