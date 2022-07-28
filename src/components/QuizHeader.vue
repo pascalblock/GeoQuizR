@@ -5,7 +5,7 @@
       <p>{{this.$store.state.stepCounter}}/{{ this.$store.state.selectedQuiz.randomQuestions.length }}</p>
     </div>
     <div class="mefo-quiz-header-question" @click="titleSound($t('Language.key'))">
-      <p><b>{{ this.$store.state.actualQuestion.name }}</b></p>
+      <p>{{ this.$store.state.actualQuestion.name }}</p>
     </div>
   </div>
 </template>
