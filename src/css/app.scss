@@ -23,6 +23,10 @@ p{
   color: $secondary;
 }
 
+.q-card__section--vert{
+  padding: 12px;
+}
+
 // Buttons
 .primaryButton {
   border-radius: 4px;
@@ -279,7 +283,7 @@ p{
 
 // Result Card
 .mefo-quiz-result-name{
-  font-family: "Eras Demi ITC", sans-serif;
+  font-family: "Nexa Rust Sans", sans-serif;
   font-size: 15px;
   color: $primary;
 }
