@@ -23,6 +23,7 @@ p{
   font-family: "Eras Medium ITC", sans-serif;
   font-size: 15px;
   color: $secondary;
+  line-height: unset;
 }
 
 .q-card__section--vert{
@@ -243,7 +244,7 @@ p{
 // Quiz Header
 .mefo-quiz-header{
   height: 60px;
-  text-align: center;
+  text-align: left;
   align-items: center;
   border-bottom: solid 2px $primary;
 
