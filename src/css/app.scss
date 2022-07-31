@@ -186,12 +186,16 @@ p{
     width: 60%;
   }
 }
+.mefo-quiz-name-section{
+  height: 60px;
+}
 
 .mefo-quiz-name{
   font-family: "Nexa Rust Sans", sans-serif;
   font-size: 20px;
   color: $primary;
   margin: 0;
+  padding-right: 56px;
 }
 
 // Quiz Start
