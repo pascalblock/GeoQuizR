@@ -54,7 +54,6 @@ export default defineComponent({
 
   setup(){
     const { locale } = useI18n({ useScope: 'global' })
-
     return{
       locale
     }
@@ -76,11 +75,12 @@ export default defineComponent({
         }
       )
       const quizList = query(collection(db, 'quiz'))
-
       const querySnapshot = await getDocs(quizList)
+
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
+
         let lanG = this.$i18n.locale
+
         if (!this.availableQuizzes.find(obj => obj.id === doc.id)){
           this.availableQuizzes.push({
             ...doc.data(),
@@ -109,8 +109,6 @@ export default defineComponent({
       this.$store.commit('storeSelectedQuiz', {
         ...quiz, randomQuestions: randomQuest
       })
-      console.log('State', this.$store.state.selectedQuiz)
-      console.log( 'random', randomQuest)
     },
 
     refresh (done) {

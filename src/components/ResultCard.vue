@@ -36,14 +36,14 @@
           <l-icon
             :icon-size="[30, 30]"
             :icon-anchor="[15, 30]"
-            icon-url="icons/marker-green.png"
+            icon-url="https://raw.githubusercontent.com/pascalblock/GeoQuizR/master/public/icons/marker-green.png"
           />
         </l-marker>
         <l-marker v-model:lat-lng="markedLatLang" :visible="marker.visible">
           <l-icon
             :icon-size="[30, 30]"
             :icon-anchor="[15, 30]"
-            icon-url="icons/marker-purple.png"
+            icon-url="https://raw.githubusercontent.com/pascalblock/GeoQuizR/master/public/icons/marker-purple.png"
           />
         </l-marker>
         <l-polyline :lat-lngs="polyline.latlngs" :color="polyline.color"></l-polyline>

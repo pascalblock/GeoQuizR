@@ -9,7 +9,7 @@
           <l-icon
             :icon-size="[50, 50]"
             :icon-anchor="[25, 50]"
-            icon-url="icons/marker-purple.png"
+            icon-url="https://raw.githubusercontent.com/pascalblock/GeoQuizR/master/public/icons/marker-purple.png"
           />
         </l-marker>
         <l-geo-json :geojson="geojson"></l-geo-json>
@@ -132,12 +132,7 @@ export default {
      * Loads a random map from the vuex store that is not the same as before
      */
     getRandomMap(){
-      this.$q.loading.show(
-        {
-          spinnerColor: 'primary',
-          backgroundColor: 'secondary'
-        }
-      )
+
       const max = this.$store.state.maps.length
       const randomMapIndex = Math.floor(Math.random() * max)
       const randomMap = this.$store.state.maps[randomMapIndex]
@@ -151,13 +146,12 @@ export default {
         this.$store.commit('storeNewActualMap', {
           actualMapID: randomMapIndex
         })
-        this.$q.loading.hide()
-
       } else{
         this.getRandomMap()
-        this.$q.loading.hide()
+
       }
     },
+
     async titleSound(languageKey){
       await ScreenReader.speak({value: this.$store.state.actualQuestion.name, language: languageKey});
     },
@@ -260,8 +254,6 @@ export default {
         this.actualQuestionID = questionID
         this.questionIndex++
         this.getQuestion()
-        this.finishedQuestionsLength++
-
       } else {
         this.$router.push({ name: 'Finished' })
       }
@@ -273,12 +265,14 @@ export default {
      */
 
     async getQuestion(){
-      const question = query(collection(db, 'questions'))
 
+      const question = query(collection(db, 'questions'))
       const querySnapshot = await getDocs(question)
 
       querySnapshot.forEach((doc) => {
+
         let lanG = this.$i18n.locale
+
         if(doc.id === this.actualQuestionID){
           this.actualQuestion = {
             ...doc.data(),
@@ -289,7 +283,6 @@ export default {
           }
         }
       })
-      console.log('Frage', this.actualQuestion)
       this.$store.commit('storeActualQuestion', {
         ...this.actualQuestion
       })
