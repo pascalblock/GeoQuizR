@@ -1,7 +1,9 @@
 <template>
   <q-page class="mefo-start-quiz">
     <div class="mefo-quiz-title">
-      <h1 class="nexa-font mefo-start-quiz-name">{{ this.$store.state.selectedQuiz.name }}</h1>
+      <h1 class="gt-sm mefo-start-quiz-name">{{ this.$store.state.selectedQuiz.name }}</h1>
+      <h1 class="gt-xs lt-md mefo-start-quiz-name-sm">{{ this.$store.state.selectedQuiz.name }}</h1>
+      <h1 class="lt-sm mefo-start-quiz-name-xs">{{ this.$store.state.selectedQuiz.name }}</h1>
       <q-btn class="primaryButton" no-caps :label="$t('startPage.startButton')" :to="{name: 'quiz'}" />
     </div>
     <q-page-sticky class="q-pa-lg" position="bottom-left">

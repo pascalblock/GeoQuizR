@@ -7,13 +7,16 @@ h1, h2, h3{
 h1{
   font-size: 30px;
   font-family: "Nexa Rust Sans", sans-serif;
+  line-height: unset;
 }
 h2{
   font-size: 20px;
   font-family: "Eras Demi ITC", sans-serif;
+  line-height: unset;
 }
 h3{
   font-size: 15px;
+  line-height: unset;
 }
 
 p{
@@ -219,7 +222,18 @@ p{
   color: $primary;
   font-size: 40px;
   margin-bottom: 12px;
-  line-height: unset;
+}
+
+.mefo-start-quiz-name-sm{
+  color: $primary;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.mefo-start-quiz-name-xs{
+  color: $primary;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
 // Quiz Header
