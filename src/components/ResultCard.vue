@@ -5,7 +5,7 @@
         <p class="mefo-quiz-result-name">
           {{ name }}
         </p>
-        <p><b>{{ $t('resultPage.card.result1') }} {{Math.round(distance)}} {{ $t('resultPage.card.result2') }}</b></p>
+        <p>{{ $t('resultPage.card.result1') }} {{Math.round(distance)}} {{ $t('resultPage.card.result2') }}</p>
       </q-card-section>
 
       <q-card-actions>

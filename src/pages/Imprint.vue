@@ -1,11 +1,11 @@
 <template>
   <q-page>
-    <div class="text-left">
+    <div class="text-left full-height">
       <pageHeader :headline-title="$t('Imprint.headline') "/>
-      <div class="mefo-page-text">
-        <p class="gt-sm multiColums-2">{{ $t('Imprint.text')}}</p>
-        <p class="lt-md">{{ $t('Imprint.text')}}</p>
-      </div>
+        <div class="mefo-page-text">
+          <p class="gt-sm multiColums-2">{{ $t('Imprint.text')}}</p>
+          <p class="lt-md">{{ $t('Imprint.text')}}</p>
+        </div>
     </div>
     <pageFooter :footer-button-label="$t('Buttons.contact.label')" :target-destination="$t('contact')"/>
   </q-page>

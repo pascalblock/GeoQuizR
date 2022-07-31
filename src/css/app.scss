@@ -2,25 +2,32 @@
 
 // Default elements
 h1, h2, h3{
-  font-family: 'Eras Demi ITC', sans-serif;
   color: $secondary;
 }
 h1{
   font-size: 30px;
   font-family: "Nexa Rust Sans", sans-serif;
+  line-height: unset;
 }
 h2{
   font-size: 20px;
   font-family: "Eras Demi ITC", sans-serif;
+  line-height: unset;
 }
 h3{
   font-size: 15px;
+  line-height: unset;
 }
 
 p{
   font-family: "Eras Medium ITC", sans-serif;
   font-size: 15px;
   color: $secondary;
+  line-height: unset;
+}
+
+.q-card__section--vert{
+  padding: 12px;
 }
 
 // Buttons
@@ -31,6 +38,7 @@ p{
   background-color: $primary;
   color: white;
   font-family: "Eras Demi ITC", sans-serif;
+  font-size: 15px;
 
 }
 
@@ -57,6 +65,7 @@ p{
   background: white;
   color: $secondary;
   font-family: "Eras Demi ITC", sans-serif;
+  font-size: 15px;
 }
 
 // Fonts
@@ -178,12 +187,16 @@ p{
     width: 60%;
   }
 }
+.mefo-quiz-name-section{
+  height: 60px;
+}
 
 .mefo-quiz-name{
   font-family: "Nexa Rust Sans", sans-serif;
   font-size: 20px;
   color: $primary;
-  margin: 0
+  margin: 0;
+  padding-right: 56px;
 }
 
 // Quiz Start
@@ -214,13 +227,24 @@ p{
   color: $primary;
   font-size: 40px;
   margin-bottom: 12px;
-  line-height: unset;
+}
+
+.mefo-start-quiz-name-sm{
+  color: $primary;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.mefo-start-quiz-name-xs{
+  color: $primary;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
 // Quiz Header
 .mefo-quiz-header{
   height: 60px;
-  text-align: center;
+  text-align: left;
   align-items: center;
   border-bottom: solid 2px $primary;
 
@@ -250,6 +274,8 @@ p{
 // Quiz HelpOptions
 .mefo-help-options{
   font-family: "Eras Demi ITC", sans-serif;
+  color: white;
+  background-color: $primary;
 }
 
 // Result Page
@@ -279,7 +305,7 @@ p{
 
 // Result Card
 .mefo-quiz-result-name{
-  font-family: "Eras Demi ITC", sans-serif;
+  font-family: "Nexa Rust Sans", sans-serif;
   font-size: 15px;
   color: $primary;
 }

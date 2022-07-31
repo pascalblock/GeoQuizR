@@ -1,7 +1,7 @@
 <template>
   <q-card class="mefo-quiz-card">
     <q-img :ratio="16/9" style="max-height: 500px" src="../assets/quizImages/city.jpg" />
-    <q-card-section style="height: 150px; padding: 12px">
+    <q-card-section style="padding: 12px; height: 150px">
       <q-btn
         fab
         color="primary"
@@ -11,8 +11,8 @@
         @click="selectQuizHandler"
         :to="{name: 'QuizStart'}"
       />
-      <div class="row no-wrap items-center">
-        <h2 class="mefo-quiz-name">
+      <div class="row no-wrap items-center mefo-quiz-name-section">
+        <h2 class="mefo-quiz-name q-pr-lg">
           {{ name }}
         </h2>
       </div>
