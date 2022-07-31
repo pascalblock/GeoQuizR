@@ -22,8 +22,9 @@ export default {
   methods: {
 
     /**
-     * @returns {Promise<void>}
      * Capacitor Screen Reader that outputs the help text through the device's speakers.
+     * @returns {Promise<void>}
+     * @param languageKey Pronunciation emphasis
      */
 
     async helpSound(languageKey){

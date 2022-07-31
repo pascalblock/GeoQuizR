@@ -60,6 +60,11 @@ export default defineComponent({
   },
 
   watch: {
+    /**
+     * Monitors whether the global language changes
+     * @param newValue New Language
+     */
+
     locale(newValue){
       this.getQuiz()
     }
@@ -67,6 +72,12 @@ export default defineComponent({
 
 
   methods: {
+
+    /**
+     * Fetches all quizzes from the database and stores them in the array availableQuizzes
+     * @returns {Promise<void>}
+     */
+
     async getQuiz(){
       this.$q.loading.show(
         {
@@ -102,6 +113,11 @@ export default defineComponent({
         }
       })
     },
+
+    /**
+     * Searches 10 random questions and saves them with other data in the vuex store
+     * @param quiz the selected quiz
+     */
 
     selectTheQuiz(quiz) {
       const randomQuest = quiz.questions.sort(() => 0.5 - Math.random()).slice(0, 10)

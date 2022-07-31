@@ -95,6 +95,12 @@ export default {
   },
 
   watch: {
+    /**
+     * Monitors whether the pin on the map has been moved
+     * @param newMarker New position of the pin
+     * @param oldMarker Old position of the pin
+     */
+
     markerLatLang(newMarker, oldMarker){
       if(newMarker !== this.initialMarkerLatLang){
         this.$store.commit('changeInitialMarkerBool')
@@ -105,7 +111,7 @@ export default {
 
   methods: {
     /**
-     * The
+     * The notification at the first question that the user has to move the pin first
      */
 
     showInitialInfo(){
@@ -151,6 +157,13 @@ export default {
 
       }
     },
+
+    /**
+     * Passes the current quiz question to the Screen Reader plugin
+     * @param actualQuestion.name current quiz question
+     * @param languageKey Pronunciation emphasis
+     * @returns {Promise<void>}
+     */
 
     async titleSound(languageKey){
       await ScreenReader.speak({value: this.$store.state.actualQuestion.name, language: languageKey});
