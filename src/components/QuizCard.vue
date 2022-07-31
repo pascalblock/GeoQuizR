@@ -1,7 +1,7 @@
 <template>
   <q-card class="mefo-quiz-card">
     <q-img :ratio="16/9" style="max-height: 500px" src="../assets/quizImages/city.jpg" />
-    <q-card-section style="height: 150px; padding: 12px">
+    <q-card-section style="padding: 12px">
       <q-btn
         fab
         color="primary"
