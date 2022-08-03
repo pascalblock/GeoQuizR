@@ -49,7 +49,7 @@ export default {
   resultPage: {
     headline: 'Your Results',
     statistics: 'Analysis',
-    goToHome: 'back to quiz overview',
+    goToHome: 'back to home',
     noPolyLine: 'Unfortunately, no line could be drawn between your answer and the correct answer.',
 
     card: {

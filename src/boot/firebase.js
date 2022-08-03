@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-//apiKey: process.env.API_KEY,
+
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
   authDomain: "mefowe-b56d1.firebaseapp.com",

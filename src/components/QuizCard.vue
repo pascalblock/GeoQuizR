@@ -1,6 +1,6 @@
 <template>
   <q-card class="mefo-quiz-card">
-    <q-img :ratio="16/9" style="max-height: 500px" src="../assets/quizImages/city.jpg" />
+    <q-img :ratio="16/9" style="max-height: 500px" :src="image" />
     <q-card-section style="padding: 12px; height: 150px">
       <q-btn
         fab
@@ -57,8 +57,11 @@ export default {
     },
     stars: {
       type: Number,
-      required: true,
       default: 5
+    },
+    image: {
+      type: String,
+      required: true
     }
   },
   methods: {

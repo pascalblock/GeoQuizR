@@ -86,7 +86,6 @@ export default {
   created() {
     this.firstQuestion()
     this.getInitialMap()
-    console.log(this.markerLatLang)
 
     if(this.$store.state.stepCounter === 1){
       this.showInitialInfo()
@@ -187,7 +186,6 @@ export default {
         if(this.calculatedDistance !== null){
           this.savePlayerAnswer()
           this.$store.commit('resetInitialMarkerLatLangBool')
-          console.log('4')
         }else{
           console.log('Etwas ist bei der Brechnung schief gelaufen!')
         }
@@ -225,7 +223,7 @@ export default {
       lon2 = this.markerLatLang.lng,
       unit = 'K'
     ){
-      if ((lat1 == lat2) && (lon1 == lon2)) {
+      if ((lat1 === lat2) && (lon1 === lon2)) {
         return 0;
       }
       else {
@@ -240,10 +238,7 @@ export default {
         dist = Math.acos(dist);
         dist = dist * 180/Math.PI;
         dist = dist * 60 * 1.1515;
-        if (unit=="K") { dist = dist * 1.609344 }
-        //if (unit=="N") { dist = dist * 0.8684 }
-        console.log('Distanz', dist)
-        //return dist;
+        if (unit === 'K') { dist = dist * 1.609344 }
         this.calculatedDistance = dist
       }
     },
