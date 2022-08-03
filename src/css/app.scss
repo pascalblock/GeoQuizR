@@ -200,10 +200,10 @@ p{
 }
 
 // Quiz Start
-.mefo-start-quiz{
+.SnXsGTHyUekyK9pyi2z1{
   display: flex;
 }
-.mefo-start-quiz::after{
+.SnXsGTHyUekyK9pyi2z1::after{
   content: '';
   position: absolute;
   background-image: url("../assets/quizImages/city.jpg");
@@ -215,6 +215,25 @@ p{
   width: 100%;
   height: 100%;
 }
+
+.HBNUGAG1eogcMltToXqJ{
+  display: flex;
+}
+.HBNUGAG1eogcMltToXqJ::after{
+  content: '';
+  position: absolute;
+  background-image: url("../assets/quizImages/brandenburg-gate.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+}
+
+
+
 .mefo-quiz-title{
   position: absolute;
   top: 30%;

@@ -1,5 +1,5 @@
 <template>
-  <q-page class="mefo-start-quiz">
+  <q-page class="mefo-start-quiz" :class="backgroundBinding">
     <div class="mefo-quiz-title">
       <h1 class="gt-sm mefo-start-quiz-name">{{ this.$store.state.selectedQuiz.name }}</h1>
       <h1 class="gt-xs lt-md mefo-start-quiz-name-sm">{{ this.$store.state.selectedQuiz.name }}</h1>
@@ -26,6 +26,14 @@ export default {
       this.$store.commit('clearFinishedQuestions')
       this.$store.commit('clearStepCount')
       this.$store.commit('resetInitialMarkerLatLangBool')
+    }
+  },
+  computed: {
+    backgroundBinding() {
+      return {
+        HBNUGAG1eogcMltToXqJ: 'HBNUGAG1eogcMltToXqJ' === this.$store.state.selectedQuiz.id,
+        SnXsGTHyUekyK9pyi2z1: 'SnXsGTHyUekyK9pyi2z1' === this.$store.state.selectedQuiz.id
+      }
     }
   }
 }
