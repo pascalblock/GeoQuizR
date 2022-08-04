@@ -4,7 +4,7 @@
     <div class="relative-position text-center">
       <l-map class="fixed" :zoom="zoom" :min-zoom="minZoom" :max-zoom="maxZoom" :center="markerLatLang">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :icon="marker.icon" v-model:lat-lng="markerLatLang" :draggable="marker.draggable"
+        <l-marker v-model:lat-lng="markerLatLang" :draggable="marker.draggable"
                   :visible="marker.visible">
           <l-icon
             :icon-size="[50, 50]"
@@ -12,7 +12,6 @@
             icon-url="https://raw.githubusercontent.com/pascalblock/GeoQuizR/master/public/icons/marker-purple.png"
           />
         </l-marker>
-        <l-geo-json :geojson="geojson"></l-geo-json>
       </l-map>
     </div>
     <q-page-sticky position="bottom-left" :offset="[12, 70]">
@@ -40,7 +39,7 @@ import helpOptions from "components/HelpOptions";
 import { collection, getDocs, query} from "firebase/firestore";
 import { db } from "src/boot/firebase";
 import "leaflet/dist/leaflet.css"
-import { LMap, LGeoJson, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
+import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 import {ScreenReader} from "@capacitor/screen-reader";
 
 export default {
@@ -51,7 +50,6 @@ export default {
     quizFooter,
     helpOptions,
     LMap,
-    LGeoJson,
     LTileLayer,
     LMarker,
     LIcon,
@@ -67,7 +65,6 @@ export default {
       minZoom: 4,
       maxZoom: 10,
       zoom: 8,
-      geojson: null,
       // Random marker on start placed in germany or close to germany
       markerLatLang: [Math.random()*3+50, Math.random()*5+6],
       initialMarkerLatLang: [],
